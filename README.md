@@ -42,7 +42,7 @@ Retorna o valor do ganho definido através da função mcpSetGain().
 
 3)	void <b>mcpInitSPI</b>(unsigned char modo)
 
-Inicializa a comunicação serial no modo definido como parâmetro de entrada (variável do tipo unsigned char).
+Inicializa a comunicação serial no modo definido como parâmetro de entrada.
 
 Modo = PRE_HPF1 : Dual Channel Output Pre HPF1;
 
