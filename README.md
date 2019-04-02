@@ -39,7 +39,9 @@ Ganho = 3: CH0 Gain = 16 | Tensão máxima = 30mV.
 2)	mcpGetGain()
 
 Retorna uma variável do tipo unsigned char, contendo o valor do ganho definido através da função mcpSetGain().
+
 3)	mcpInitSPI()
+
 Inicializa a comunicação serial no modo definido como parâmetro de entrada (variável do tipo unsigned char).
 
 Modo = PRE_HPF1 : Dual Channel Output Pre HPF1;
