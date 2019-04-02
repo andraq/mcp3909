@@ -31,11 +31,11 @@
 [v ___flmul __flmul `(d  1 e 3 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"24 C:\Users\André Aquino\OneDrive\PROJETOS ELETRONICA\mcpLib\GitHub\mcpLib.X\main.c
+"24 C:\Users\André Aquino\OneDrive\PROJETOS ELETRONICA\mcp3909\mcpLib.X\main.c
 [v _setup setup `(v  1 e 1 0 ]
 "59
 [v _main main `(v  1 e 1 0 ]
-"68 C:\Users\André Aquino\OneDrive\PROJETOS ELETRONICA\mcpLib\GitHub\mcpLib.X\mcp3909.h
+"68 C:\Users\André Aquino\OneDrive\PROJETOS ELETRONICA\mcp3909\mcpLib.X\mcp3909.h
 [v _mcpSetGain mcpSetGain `(v  1 e 1 0 ]
 "102
 [v _mcpGetGanho mcpGetGanho `(uc  1 e 1 0 ]
@@ -45,7 +45,7 @@
 [v _mcpRcv mcpRcv `(v  1 e 1 0 ]
 "439
 [v _mcpRead mcpRead `(v  1 e 1 0 ]
-"18 C:\Users\André Aquino\OneDrive\PROJETOS ELETRONICA\mcpLib\GitHub\mcpLib.X\serial.h
+"18 C:\Users\André Aquino\OneDrive\PROJETOS ELETRONICA\mcp3909\mcpLib.X\serial.h
 [v _putch putch `(v  1 e 1 0 ]
 "25
 [v _inicializa_RS232 inicializa_RS232 `(v  1 e 1 0 ]
@@ -178,18 +178,18 @@
 [v _TXIF TXIF `VEb  1 e 0 @31988 ]
 "354 C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\doprnt.c
 [v _dpowers dpowers `C[5]ui  1 s 10 dpowers ]
-"67 C:\Users\André Aquino\OneDrive\PROJETOS ELETRONICA\mcpLib\GitHub\mcpLib.X\init.h
+"67 C:\Users\André Aquino\OneDrive\PROJETOS ELETRONICA\mcp3909\mcpLib.X\init.h
 [v _auxInt auxInt `ui  1 e 2 0 ]
 "68
 [v _valor_ch0 valor_ch0 `[250]i  1 e 500 0 ]
 "69
 [v _valor_ch1 valor_ch1 `[250]i  1 e 500 0 ]
-"54 C:\Users\André Aquino\OneDrive\PROJETOS ELETRONICA\mcpLib\GitHub\mcpLib.X\mcp3909.h
+"54 C:\Users\André Aquino\OneDrive\PROJETOS ELETRONICA\mcp3909\mcpLib.X\mcp3909.h
 [v _mcp_ch0 mcp_ch0 `i  1 e 2 0 ]
 [v _mcp_ch1 mcp_ch1 `i  1 e 2 0 ]
 "55
 [v _mcp_ganho mcp_ganho `uc  1 e 1 0 ]
-"59 C:\Users\André Aquino\OneDrive\PROJETOS ELETRONICA\mcpLib\GitHub\mcpLib.X\main.c
+"59 C:\Users\André Aquino\OneDrive\PROJETOS ELETRONICA\mcp3909\mcpLib.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
 "76
@@ -216,7 +216,7 @@
 [v printf@f f `*.25Cuc  1 p 2 12 ]
 "1541
 } 0
-"18 C:\Users\André Aquino\OneDrive\PROJETOS ELETRONICA\mcpLib\GitHub\mcpLib.X\serial.h
+"18 C:\Users\André Aquino\OneDrive\PROJETOS ELETRONICA\mcp3909\mcpLib.X\serial.h
 [v _putch putch `(v  1 e 1 0 ]
 {
 [v putch@data data `uc  1 a 1 wreg ]
@@ -246,7 +246,7 @@
 [v ___lwdiv@divisor divisor `ui  1 p 2 2 ]
 "31
 } 0
-"68 C:\Users\André Aquino\OneDrive\PROJETOS ELETRONICA\mcpLib\GitHub\mcpLib.X\mcp3909.h
+"68 C:\Users\André Aquino\OneDrive\PROJETOS ELETRONICA\mcp3909\mcpLib.X\mcp3909.h
 [v _mcpSetGain mcpSetGain `(v  1 e 1 0 ]
 {
 [v mcpSetGain@ganho ganho `uc  1 a 1 wreg ]
@@ -269,7 +269,7 @@
 {
 "104
 } 0
-"25 C:\Users\André Aquino\OneDrive\PROJETOS ELETRONICA\mcpLib\GitHub\mcpLib.X\serial.h
+"25 C:\Users\André Aquino\OneDrive\PROJETOS ELETRONICA\mcp3909\mcpLib.X\serial.h
 [v _inicializa_RS232 inicializa_RS232 `(v  1 e 1 0 ]
 {
 "28
@@ -292,7 +292,7 @@
 [v ___aldiv@divisor divisor `l  1 p 4 4 ]
 "42
 } 0
-"439 C:\Users\André Aquino\OneDrive\PROJETOS ELETRONICA\mcpLib\GitHub\mcpLib.X\mcp3909.h
+"439 C:\Users\André Aquino\OneDrive\PROJETOS ELETRONICA\mcp3909\mcpLib.X\mcp3909.h
 [v _mcpRead mcpRead `(v  1 e 1 0 ]
 {
 "441

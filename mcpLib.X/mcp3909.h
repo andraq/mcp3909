@@ -20,7 +20,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
  Disponível em: https://github.com/andraq/mcp3909
  
- * --------------------------------------------------------------------------*/
+ */
 
 // Relacionar os pinos do microcontrolador com os pinos do MCP -----------------
 
