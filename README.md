@@ -25,10 +25,15 @@ As funções disponíveis:
 1)	mcpSetGain():
 
 Determina o ganho do canal de corrente (CH0), conforme o valor indicado como parâmetro de entrada da função (variável do tipo unsigned char).
+
 Ganho = 0: CH0 Gain = 01 | Tensão máxima = 470mV;
+
 Ganho = 1: CH0 Gain = 02 | Tensão máxima = 235mV;
+
 Ganho = 2: CH0 Gain = 08 | Tensão máxima = 60mV;
+
 Ganho = 3: CH0 Gain = 16 | Tensão máxima = 30mV.
+
 (Mais detalhes na página 19 do datasheet).
 
 2)	mcpGetGain()
@@ -36,8 +41,11 @@ Ganho = 3: CH0 Gain = 16 | Tensão máxima = 30mV.
 Retorna uma variável do tipo unsigned char, contendo o valor do ganho definido através da função mcpSetGain().
 3)	mcpInitSPI()
 Inicializa a comunicação serial no modo definido como parâmetro de entrada (variável do tipo unsigned char).
+
 Modo = PRE_HPF1 : Dual Channel Output Pre HPF1;
+
 Modo = POST_HPF1: Dual Channel Output Post HPF1.
+
 (Mais detalhes na página 25 do datasheet).
 
 4)	mcpRead()
