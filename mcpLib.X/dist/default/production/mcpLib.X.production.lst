@@ -1,0 +1,3645 @@
+
+
+Microchip Technology PIC18 LITE Macro Assembler V1.45 build -152302408 
+                                                                                               Tue Apr 02 12:43:39 2019
+
+Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160504
+     1                           	processor	18F2620
+     2                           	fnconf	rparam,??,?,0
+     3                           	opt	pw 120
+     4                           	opt	lm
+     5                           	psect	smallconst,global,reloc=2,class=SMALLCONST,delta=1,noexec
+     6                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     7                           	psect	bitbssCOMRAM,global,bit,class=COMRAM,space=1,delta=1,noexec
+     8                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+     9                           	psect	bssBIGRAM,global,class=BIGRAM,space=1,delta=1,lowdata,noexec
+    10                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+    11                           	psect	text0,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text4,global,reloc=2,class=CODE,delta=1,group=1
+    16                           	psect	text5,global,reloc=2,class=CODE,delta=1,group=1
+    17                           	psect	text6,global,reloc=2,class=CODE,delta=1
+    18                           	psect	text7,global,reloc=2,class=CODE,delta=1
+    19                           	psect	text8,global,reloc=2,class=CODE,delta=1
+    20                           	psect	text9,global,reloc=2,class=CODE,delta=1
+    21                           	psect	text10,global,reloc=2,class=CODE,delta=1,group=1
+    22                           	psect	text11,global,reloc=2,class=CODE,delta=1
+    23                           	psect	text12,global,reloc=2,class=CODE,delta=1
+    24                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    25                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    26  0000                     
+    27                           ; Version 1.45
+    28                           ; Generated 16/11/2017 GMT
+    29                           ; 
+    30                           ; Copyright © 2017, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    31                           ; All rights reserved.
+    32                           ; 
+    33                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    34                           ; 
+    35                           ; Redistribution and use in source and binary forms, with or without modification, are
+    36                           ; permitted provided that the following conditions are met:
+    37                           ; 
+    38                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    39                           ;        conditions and the following disclaimer.
+    40                           ; 
+    41                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    42                           ;        of conditions and the following disclaimer in the documentation and/or other
+    43                           ;        materials provided with the distribution.
+    44                           ; 
+    45                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    46                           ;        software without specific prior written permission.
+    47                           ; 
+    48                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    49                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    50                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    51                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    52                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    53                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    54                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    55                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    56                           ; 
+    57                           ; 
+    58                           ; Code-generator required, PIC18F2620 Definitions
+    59                           ; 
+    60                           ; SFR Addresses
+    61  0000                     
+    62                           	psect	smallconst
+    63  001000                     __psmallconst:
+    64                           	opt stack 0
+    65  001000  00                 	db	0
+    66  001001                     _dpowers:
+    67                           	opt stack 0
+    68  001001  0001               	dw	1
+    69  001003  000A               	dw	10
+    70  001005  0064               	dw	100
+    71  001007  03E8               	dw	1000
+    72  001009  2710               	dw	10000
+    73  00100B                     __end_of_dpowers:
+    74                           	opt stack 0
+    75  0000                     _INTCON2bits	set	4081
+    76  0000                     _WDTCON	set	4049
+    77  0000                     _SPBRG	set	4015
+    78  0000                     _TXSTA	set	4012
+    79  0000                     _RCSTA	set	4011
+    80  0000                     _TXREG	set	4013
+    81  0000                     _PORTCbits	set	3970
+    82  0000                     _TRISCbits	set	3988
+    83  0000                     _PORTBbits	set	3969
+    84  0000                     _TRISBbits	set	3987
+    85  0000                     _TXIE	set	31980
+    86  0000                     _RCIE	set	31981
+    87  0000                     _TXIF	set	31988
+    88  00100B                     STR_2:
+    89  00100B  47                 	db	71	;'G'
+    90  00100C  41                 	db	65	;'A'
+    91  00100D  4E                 	db	78	;'N'
+    92  00100E  48                 	db	72	;'H'
+    93  00100F  4F                 	db	79	;'O'
+    94  001010  20                 	db	32
+    95  001011  4D                 	db	77	;'M'
+    96  001012  43                 	db	67	;'C'
+    97  001013  50                 	db	80	;'P'
+    98  001014  3A                 	db	58	;':'
+    99  001015  20                 	db	32
+   100  001016  25                 	db	37
+   101  001017  75                 	db	117	;'u'
+   102  001018  0D                 	db	13
+   103  001019  0A                 	db	10
+   104  00101A  00                 	db	0
+   105  00101B                     STR_1:
+   106  00101B  53                 	db	83	;'S'
+   107  00101C  45                 	db	69	;'E'
+   108  00101D  52                 	db	82	;'R'
+   109  00101E  49                 	db	73	;'I'
+   110  00101F  41                 	db	65	;'A'
+   111  001020  4C                 	db	76	;'L'
+   112  001021  2D                 	db	45
+   113  001022  4F                 	db	79	;'O'
+   114  001023  4B                 	db	75	;'K'
+   115  001024  0D                 	db	13
+   116  001025  0A                 	db	10
+   117  001026  00                 	db	0
+   118  001027                     STR_4:
+   119  001027  25                 	db	37
+   120  001028  64                 	db	100	;'d'
+   121  001029  20                 	db	32
+   122  00102A  7C                 	db	124
+   123  00102B  20                 	db	32
+   124  00102C  25                 	db	37
+   125  00102D  64                 	db	100	;'d'
+   126  00102E  0D                 	db	13
+   127  00102F  0A                 	db	10
+   128  001030  00                 	db	0
+   129  0000                     
+   130                           ; #config settings
+   131  001031  00                 	db	0	; dummy byte at the end
+   132  0000                     
+   133                           	psect	cinit
+   134  001AEA                     __pcinit:
+   135                           	opt stack 0
+   136  001AEA                     start_initialization:
+   137                           	opt stack 0
+   138  001AEA                     __initialization:
+   139                           	opt stack 0
+   140                           
+   141                           ; Clear objects allocated to BIGRAM (1000 bytes)
+   142  001AEA  EE0B  F098         	lfsr	0,__pbssBIGRAM
+   143  001AEE  EE13 F0E8          	lfsr	1,1000
+   144  001AF2                     clear_0:
+   145  001AF2  6AEE               	clrf	postinc0,c
+   146  001AF4  50E5               	movf	postdec1,w,c
+   147  001AF6  50E1               	movf	fsr1l,w,c
+   148  001AF8  E1FC               	bnz	clear_0
+   149  001AFA  50E2               	movf	fsr1h,w,c
+   150  001AFC  E1FA               	bnz	clear_0
+   151                           
+   152                           ; Clear objects allocated to BITCOMRAM (1 bytes)
+   153  001AFE  6A26               	clrf	(__pbitbssCOMRAM/(0+8))& (0+255),c
+   154                           
+   155                           ; Clear objects allocated to COMRAM (7 bytes)
+   156  001B00  EE00  F01F         	lfsr	0,__pbssCOMRAM
+   157  001B04  0E07               	movlw	7
+   158  001B06                     clear_1:
+   159  001B06  6AEE               	clrf	postinc0,c
+   160  001B08  06E8               	decf	wreg,f,c
+   161  001B0A  E1FD               	bnz	clear_1
+   162  001B0C                     end_of_initialization:
+   163                           	opt stack 0
+   164  001B0C                     __end_of__initialization:
+   165                           	opt stack 0
+   166  001B0C  0E00               	movlw	low (__Lmediumconst shr (0+16))
+   167  001B0E  6EF8               	movwf	tblptru,c
+   168  001B10  0100               	movlb	0
+   169  001B12  EFCF  F00B         	goto	_main	;jump to C main() function
+   170                           tblptru	equ	0xFF8
+   171                           postinc0	equ	0xFEE
+   172                           wreg	equ	0xFE8
+   173                           postdec1	equ	0xFE5
+   174                           fsr1h	equ	0xFE2
+   175                           fsr1l	equ	0xFE1
+   176                           
+   177                           	psect	bitbssCOMRAM
+   178  000130                     __pbitbssCOMRAM:
+   179                           	opt stack 0
+   180  000130                     mcpRead@f_sample:
+   181                           	opt stack 0
+   182  000130                     	ds	1
+   183                           tblptru	equ	0xFF8
+   184                           postinc0	equ	0xFEE
+   185                           wreg	equ	0xFE8
+   186                           postdec1	equ	0xFE5
+   187                           fsr1h	equ	0xFE2
+   188                           fsr1l	equ	0xFE1
+   189                           
+   190                           	psect	bssCOMRAM
+   191  00001F                     __pbssCOMRAM:
+   192                           	opt stack 0
+   193  00001F                     _mcp_ch1:
+   194                           	opt stack 0
+   195  00001F                     	ds	2
+   196  000021                     _mcp_ch0:
+   197                           	opt stack 0
+   198  000021                     	ds	2
+   199  000023                     _auxInt:
+   200                           	opt stack 0
+   201  000023                     	ds	2
+   202  000025                     _mcp_ganho:
+   203                           	opt stack 0
+   204  000025                     	ds	1
+   205                           tblptru	equ	0xFF8
+   206                           postinc0	equ	0xFEE
+   207                           wreg	equ	0xFE8
+   208                           postdec1	equ	0xFE5
+   209                           fsr1h	equ	0xFE2
+   210                           fsr1l	equ	0xFE1
+   211                           
+   212                           	psect	bssBIGRAM
+   213  000B98                     __pbssBIGRAM:
+   214                           	opt stack 0
+   215  000B98                     _valor_ch1:
+   216                           	opt stack 0
+   217  000B98                     	ds	500
+   218  000D8C                     _valor_ch0:
+   219                           	opt stack 0
+   220  000D8C                     	ds	500
+   221                           tblptru	equ	0xFF8
+   222                           postinc0	equ	0xFEE
+   223                           wreg	equ	0xFE8
+   224                           postdec1	equ	0xFE5
+   225                           fsr1h	equ	0xFE2
+   226                           fsr1l	equ	0xFE1
+   227                           
+   228                           	psect	cstackCOMRAM
+   229  000001                     __pcstackCOMRAM:
+   230                           	opt stack 0
+   231  000001                     ??_mcpRcv:
+   232  000001                     ?___lwdiv:
+   233                           	opt stack 0
+   234  000001                     ?___aldiv:
+   235                           	opt stack 0
+   236  000001                     mcpSetGain@ganho:
+   237                           	opt stack 0
+   238  000001                     mcpInitSPI@modo:
+   239                           	opt stack 0
+   240  000001                     putch@data:
+   241                           	opt stack 0
+   242  000001                     ___lwdiv@dividend:
+   243                           	opt stack 0
+   244  000001                     ___aldiv@dividend:
+   245                           	opt stack 0
+   246                           
+   247                           ; 4 bytes @ 0x0
+   248  000001                     	ds	1
+   249  000002                     mcpRead@array_ch0:
+   250                           	opt stack 0
+   251                           
+   252                           ; 2 bytes @ 0x1
+   253  000002                     	ds	1
+   254  000003                     ___lwdiv@divisor:
+   255                           	opt stack 0
+   256                           
+   257                           ; 2 bytes @ 0x2
+   258  000003                     	ds	1
+   259  000004                     mcpRead@array_ch1:
+   260                           	opt stack 0
+   261                           
+   262                           ; 2 bytes @ 0x3
+   263  000004                     	ds	1
+   264  000005                     ___lwdiv@quotient:
+   265                           	opt stack 0
+   266  000005                     ___aldiv@divisor:
+   267                           	opt stack 0
+   268                           
+   269                           ; 4 bytes @ 0x4
+   270  000005                     	ds	1
+   271  000006                     mcpRead@qntAmostras:
+   272                           	opt stack 0
+   273                           
+   274                           ; 2 bytes @ 0x5
+   275  000006                     	ds	1
+   276  000007                     ___lwdiv@counter:
+   277                           	opt stack 0
+   278                           
+   279                           ; 1 bytes @ 0x6
+   280  000007                     	ds	1
+   281  000008                     ?___lwmod:
+   282                           	opt stack 0
+   283  000008                     mcpRead@contAmostra:
+   284                           	opt stack 0
+   285  000008                     ___lwmod@dividend:
+   286                           	opt stack 0
+   287                           
+   288                           ; 2 bytes @ 0x7
+   289  000008                     	ds	1
+   290  000009                     ___aldiv@counter:
+   291                           	opt stack 0
+   292                           
+   293                           ; 1 bytes @ 0x8
+   294  000009                     	ds	1
+   295  00000A                     ___aldiv@sign:
+   296                           	opt stack 0
+   297  00000A                     ___lwmod@divisor:
+   298                           	opt stack 0
+   299                           
+   300                           ; 2 bytes @ 0x9
+   301  00000A                     	ds	1
+   302  00000B                     ___aldiv@quotient:
+   303                           	opt stack 0
+   304                           
+   305                           ; 4 bytes @ 0xA
+   306  00000B                     	ds	1
+   307  00000C                     ___lwmod@counter:
+   308                           	opt stack 0
+   309                           
+   310                           ; 1 bytes @ 0xB
+   311  00000C                     	ds	1
+   312  00000D                     ?_printf:
+   313                           	opt stack 0
+   314  00000D                     printf@f:
+   315                           	opt stack 0
+   316                           
+   317                           ; 2 bytes @ 0xC
+   318  00000D                     	ds	2
+   319  00000F                     inicializa_RS232@velocidade:
+   320                           	opt stack 0
+   321                           
+   322                           ; 4 bytes @ 0xE
+   323  00000F                     	ds	4
+   324  000013                     ??_printf:
+   325  000013                     inicializa_RS232@modo:
+   326                           	opt stack 0
+   327                           
+   328                           ; 2 bytes @ 0x12
+   329  000013                     	ds	1
+   330  000014                     printf@prec:
+   331                           	opt stack 0
+   332                           
+   333                           ; 1 bytes @ 0x13
+   334  000014                     	ds	1
+   335  000015                     inicializa_RS232@valor:
+   336                           	opt stack 0
+   337  000015                     printf@ap:
+   338                           	opt stack 0
+   339                           
+   340                           ; 2 bytes @ 0x14
+   341  000015                     	ds	2
+   342  000017                     printf@flag:
+   343                           	opt stack 0
+   344  000017                     _inicializa_RS232$943:
+   345                           	opt stack 0
+   346                           
+   347                           ; 4 bytes @ 0x16
+   348  000017                     	ds	1
+   349  000018                     printf@val:
+   350                           	opt stack 0
+   351                           
+   352                           ; 2 bytes @ 0x17
+   353  000018                     	ds	2
+   354  00001A                     printf@c:
+   355                           	opt stack 0
+   356                           
+   357                           ; 1 bytes @ 0x19
+   358  00001A                     	ds	1
+   359  00001B                     ??_setup:
+   360                           
+   361                           ; 1 bytes @ 0x1A
+   362  00001B                     	ds	2
+   363  00001D                     ??_main:
+   364                           
+   365                           ; 1 bytes @ 0x1C
+   366  00001D                     	ds	2
+   367                           tblptru	equ	0xFF8
+   368                           postinc0	equ	0xFEE
+   369                           wreg	equ	0xFE8
+   370                           postdec1	equ	0xFE5
+   371                           fsr1h	equ	0xFE2
+   372                           fsr1l	equ	0xFE1
+   373                           
+   374 ;;
+   375 ;;Main: autosize = 0, tempsize = 2, incstack = 0, save=0
+   376 ;;
+   377 ;; *************** function _main *****************
+   378 ;; Defined at:
+   379 ;;		line 59 in file "main.c"
+   380 ;; Parameters:    Size  Location     Type
+   381 ;;		None
+   382 ;; Auto vars:     Size  Location     Type
+   383 ;;		None
+   384 ;; Return value:  Size  Location     Type
+   385 ;;                  1    wreg      void 
+   386 ;; Registers used:
+   387 ;;		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+   388 ;; Tracked objects:
+   389 ;;		On entry : 0/0
+   390 ;;		On exit  : 0/0
+   391 ;;		Unchanged: 0/0
+   392 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   393 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   394 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   395 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   396 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   397 ;;Total ram usage:        2 bytes
+   398 ;; Hardware stack levels required when called:    3
+   399 ;; This function calls:
+   400 ;;		_mcpRead
+   401 ;;		_printf
+   402 ;;		_setup
+   403 ;; This function is called by:
+   404 ;;		Startup code after reset
+   405 ;; This function uses a non-reentrant model
+   406 ;;
+   407                           
+   408                           	psect	text0
+   409  00179E                     __ptext0:
+   410                           	opt stack 0
+   411  00179E                     _main:
+   412                           	opt stack 28
+   413                           
+   414                           ;main.c: 60: setup();
+   415                           
+   416                           ;incstack = 0
+   417  00179E  EC2C  F00C         	call	_setup	;wreg free
+   418  0017A2                     
+   419                           ;main.c: 63: PORTCbits.RC4=0;
+   420  0017A2  9882               	bcf	3970,4,c	;volatile
+   421                           
+   422                           ;main.c: 65: mcpRead(valor_ch0, valor_ch1, 250);
+   423  0017A4  0E8C               	movlw	low _valor_ch0
+   424  0017A6  6E02               	movwf	mcpRead@array_ch0,c
+   425  0017A8  0E0D               	movlw	high _valor_ch0
+   426  0017AA  6E03               	movwf	mcpRead@array_ch0+1,c
+   427  0017AC  0E98               	movlw	low _valor_ch1
+   428  0017AE  6E04               	movwf	mcpRead@array_ch1,c
+   429  0017B0  0E0B               	movlw	high _valor_ch1
+   430  0017B2  6E05               	movwf	mcpRead@array_ch1+1,c
+   431  0017B4  0E00               	movlw	0
+   432  0017B6  6E07               	movwf	mcpRead@qntAmostras+1,c
+   433  0017B8  0EFA               	movlw	250
+   434  0017BA  6E06               	movwf	mcpRead@qntAmostras,c
+   435  0017BC  ECCA  F00C         	call	_mcpRead	;wreg free
+   436                           
+   437                           ;main.c: 67: printf("\r\n");
+   438  0017C0  0E24               	movlw	low (STR_1+9)
+   439  0017C2  6E0D               	movwf	printf@f,c
+   440  0017C4  0E10               	movlw	high (STR_1+9)
+   441  0017C6  6E0E               	movwf	printf@f+1,c
+   442  0017C8  EC50  F00A         	call	_printf	;wreg free
+   443                           
+   444                           ;main.c: 68: for(auxInt=0 ; auxInt<250 ; auxInt++){
+   445  0017CC  0E00               	movlw	0
+   446  0017CE  6E24               	movwf	_auxInt+1,c
+   447  0017D0  0E00               	movlw	0
+   448  0017D2  6E23               	movwf	_auxInt,c
+   449  0017D4                     l1372:
+   450  0017D4  5024               	movf	_auxInt+1,w,c
+   451  0017D6  E127               	bnz	l1382
+   452  0017D8  0EFA               	movlw	250
+   453  0017DA  5C23               	subwf	_auxInt,w,c
+   454  0017DC  B0D8               	btfsc	status,0,c
+   455  0017DE  D023               	goto	u950
+   456                           
+   457                           ;main.c: 69: printf("%d | %d\r\n", valor_ch0[auxInt], valor_ch1[auxInt]);
+   458  0017E0  0E27               	movlw	low STR_4
+   459  0017E2  6E0D               	movwf	printf@f,c
+   460  0017E4  0E10               	movlw	high STR_4
+   461  0017E6  6E0E               	movwf	printf@f+1,c
+   462  0017E8  90D8               	bcf	status,0,c
+   463  0017EA  3423               	rlcf	_auxInt,w,c
+   464  0017EC  6ED9               	movwf	fsr2l,c
+   465  0017EE  3424               	rlcf	_auxInt+1,w,c
+   466  0017F0  6EDA               	movwf	fsr2h,c
+   467  0017F2  0E8C               	movlw	low _valor_ch0
+   468  0017F4  26D9               	addwf	fsr2l,f,c
+   469  0017F6  0E0D               	movlw	high _valor_ch0
+   470  0017F8  22DA               	addwfc	fsr2h,f,c
+   471  0017FA  CFDE F00F          	movff	postinc2,?_printf+2
+   472  0017FE  CFDD F010          	movff	postdec2,?_printf+3
+   473  001802  90D8               	bcf	status,0,c
+   474  001804  3423               	rlcf	_auxInt,w,c
+   475  001806  6ED9               	movwf	fsr2l,c
+   476  001808  3424               	rlcf	_auxInt+1,w,c
+   477  00180A  6EDA               	movwf	fsr2h,c
+   478  00180C  0E98               	movlw	low _valor_ch1
+   479  00180E  26D9               	addwf	fsr2l,f,c
+   480  001810  0E0B               	movlw	high _valor_ch1
+   481  001812  22DA               	addwfc	fsr2h,f,c
+   482  001814  CFDE F011          	movff	postinc2,?_printf+4
+   483  001818  CFDD F012          	movff	postdec2,?_printf+5
+   484  00181C  EC50  F00A         	call	_printf	;wreg free
+   485  001820  4A23               	infsnz	_auxInt,f,c
+   486  001822  2A24               	incf	_auxInt+1,f,c
+   487  001824  D7D7               	goto	l1372
+   488  001826                     u950:
+   489  001826                     l1382:
+   490                           
+   491                           ;main.c: 70: }
+   492                           ;main.c: 71: _delay((unsigned long)((50)*(48000000/4000.0)));
+   493  001826  0E04               	movlw	4
+   494  001828  6E1E               	movwf	(??_main+1)& (0+255),c
+   495  00182A  0E0C               	movlw	12
+   496  00182C  6E1D               	movwf	??_main& (0+255),c
+   497  00182E  0E34               	movlw	52
+   498  001830                     u967:
+   499  001830  2EE8               	decfsz	wreg,f,c
+   500  001832  D7FE               	bra	u967
+   501  001834  2E1D               	decfsz	??_main& (0+255),f,c
+   502  001836  D7FC               	bra	u967
+   503  001838  2E1E               	decfsz	(??_main+1)& (0+255),f,c
+   504  00183A  D7FA               	bra	u967
+   505                           
+   506                           ;main.c: 72: PORTCbits.RC4=1;
+   507  00183C  8882               	bsf	3970,4,c	;volatile
+   508                           
+   509                           ;main.c: 73: _delay((unsigned long)((950)*(48000000/4000.0)));
+   510  00183E  0E3A               	movlw	58
+   511  001840  6E1E               	movwf	(??_main+1)& (0+255),c
+   512  001842  0ED6               	movlw	214
+   513  001844  6E1D               	movwf	??_main& (0+255),c
+   514  001846  0E09               	movlw	9
+   515  001848                     u977:
+   516  001848  2EE8               	decfsz	wreg,f,c
+   517  00184A  D7FE               	bra	u977
+   518  00184C  2E1D               	decfsz	??_main& (0+255),f,c
+   519  00184E  D7FC               	bra	u977
+   520  001850  2E1E               	decfsz	(??_main+1)& (0+255),f,c
+   521  001852  D7FA               	bra	u977
+   522  001854  F000               	nop	
+   523  001856  D7A5               	goto	l94
+   524  001858                     __end_of_main:
+   525                           	opt stack 0
+   526                           tblptru	equ	0xFF8
+   527                           postinc0	equ	0xFEE
+   528                           wreg	equ	0xFE8
+   529                           postdec1	equ	0xFE5
+   530                           fsr1h	equ	0xFE2
+   531                           fsr1l	equ	0xFE1
+   532                           postinc2	equ	0xFDE
+   533                           postdec2	equ	0xFDD
+   534                           fsr2h	equ	0xFDA
+   535                           fsr2l	equ	0xFD9
+   536                           status	equ	0xFD8
+   537                           
+   538 ;; *************** function _setup *****************
+   539 ;; Defined at:
+   540 ;;		line 24 in file "main.c"
+   541 ;; Parameters:    Size  Location     Type
+   542 ;;		None
+   543 ;; Auto vars:     Size  Location     Type
+   544 ;;		None
+   545 ;; Return value:  Size  Location     Type
+   546 ;;                  1    wreg      void 
+   547 ;; Registers used:
+   548 ;;		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+   549 ;; Tracked objects:
+   550 ;;		On entry : 0/0
+   551 ;;		On exit  : 0/0
+   552 ;;		Unchanged: 0/0
+   553 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   554 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   555 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   556 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   557 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   558 ;;Total ram usage:        2 bytes
+   559 ;; Hardware stack levels used:    1
+   560 ;; Hardware stack levels required when called:    2
+   561 ;; This function calls:
+   562 ;;		_inicializa_RS232
+   563 ;;		_mcpGetGanho
+   564 ;;		_mcpInitSPI
+   565 ;;		_mcpSetGain
+   566 ;;		_printf
+   567 ;; This function is called by:
+   568 ;;		_main
+   569 ;; This function uses a non-reentrant model
+   570 ;;
+   571                           
+   572                           	psect	text1
+   573  001858                     __ptext1:
+   574                           	opt stack 0
+   575  001858                     _setup:
+   576                           	opt stack 28
+   577                           
+   578                           ;main.c: 26: WDTCON=0;
+   579                           
+   580                           ;incstack = 0
+   581  001858  0E00               	movlw	0
+   582  00185A  6ED1               	movwf	4049,c	;volatile
+   583                           
+   584                           ;main.c: 27: INTCON2bits.RBPU=0;
+   585  00185C  9EF1               	bcf	intcon2,7,c	;volatile
+   586                           
+   587                           ;main.c: 30: inicializa_RS232(115200,1);
+   588  00185E  0E00               	movlw	0
+   589  001860  6E0F               	movwf	inicializa_RS232@velocidade,c
+   590  001862  0EC2               	movlw	194
+   591  001864  6E10               	movwf	inicializa_RS232@velocidade+1,c
+   592  001866  0E01               	movlw	1
+   593  001868  6E11               	movwf	inicializa_RS232@velocidade+2,c
+   594  00186A  0E00               	movlw	0
+   595  00186C  6E12               	movwf	inicializa_RS232@velocidade+3,c
+   596  00186E  0E00               	movlw	0
+   597  001870  6E14               	movwf	inicializa_RS232@modo+1,c
+   598  001872  0E01               	movlw	1
+   599  001874  6E13               	movwf	inicializa_RS232@modo,c
+   600  001876  ECF5  F00A         	call	_inicializa_RS232	;wreg free
+   601                           
+   602                           ;main.c: 33: TRISCbits.TRISC4 = 0;
+   603  00187A  9894               	bcf	3988,4,c	;volatile
+   604                           
+   605                           ;main.c: 34: PORTCbits.RC4 = 1;
+   606  00187C  8882               	bsf	3970,4,c	;volatile
+   607                           
+   608                           ;main.c: 37: for(auxInt=0 ; auxInt<3 ; auxInt++){
+   609  00187E  0E00               	movlw	0
+   610  001880  6E24               	movwf	_auxInt+1,c
+   611  001882  0E00               	movlw	0
+   612  001884  6E23               	movwf	_auxInt,c
+   613  001886                     l1346:
+   614  001886  5024               	movf	_auxInt+1,w,c
+   615  001888  E121               	bnz	l1356
+   616  00188A  0E03               	movlw	3
+   617  00188C  5C23               	subwf	_auxInt,w,c
+   618  00188E  B0D8               	btfsc	status,0,c
+   619  001890  D01D               	goto	u930
+   620                           
+   621                           ;main.c: 38: PORTCbits.RC4 = 0;
+   622  001892  9882               	bcf	3970,4,c	;volatile
+   623                           
+   624                           ;main.c: 39: _delay((unsigned long)((150)*(48000000/4000.0)));
+   625  001894  0E0A               	movlw	10
+   626  001896  6E1C               	movwf	(??_setup+1)& (0+255),c
+   627  001898  0E22               	movlw	34
+   628  00189A  6E1B               	movwf	??_setup& (0+255),c
+   629  00189C  0EA1               	movlw	161
+   630  00189E                     u987:
+   631  00189E  2EE8               	decfsz	wreg,f,c
+   632  0018A0  D7FE               	bra	u987
+   633  0018A2  2E1B               	decfsz	??_setup& (0+255),f,c
+   634  0018A4  D7FC               	bra	u987
+   635  0018A6  2E1C               	decfsz	(??_setup+1)& (0+255),f,c
+   636  0018A8  D7FA               	bra	u987
+   637  0018AA  F000               	nop	
+   638                           
+   639                           ;main.c: 40: PORTCbits.RC4 = 1;
+   640  0018AC  8882               	bsf	3970,4,c	;volatile
+   641                           
+   642                           ;main.c: 41: _delay((unsigned long)((150)*(48000000/4000.0)));
+   643  0018AE  0E0A               	movlw	10
+   644  0018B0  6E1C               	movwf	(??_setup+1)& (0+255),c
+   645  0018B2  0E22               	movlw	34
+   646  0018B4  6E1B               	movwf	??_setup& (0+255),c
+   647  0018B6  0EA1               	movlw	161
+   648  0018B8                     u997:
+   649  0018B8  2EE8               	decfsz	wreg,f,c
+   650  0018BA  D7FE               	bra	u997
+   651  0018BC  2E1B               	decfsz	??_setup& (0+255),f,c
+   652  0018BE  D7FC               	bra	u997
+   653  0018C0  2E1C               	decfsz	(??_setup+1)& (0+255),f,c
+   654  0018C2  D7FA               	bra	u997
+   655  0018C4  F000               	nop	
+   656  0018C6  4A23               	infsnz	_auxInt,f,c
+   657  0018C8  2A24               	incf	_auxInt+1,f,c
+   658  0018CA  D7DD               	goto	l1346
+   659  0018CC                     u930:
+   660  0018CC                     l1356:
+   661                           
+   662                           ;main.c: 42: }
+   663                           ;main.c: 44: printf("SERIAL-OK\r\n");
+   664  0018CC  0E1B               	movlw	low STR_1
+   665  0018CE  6E0D               	movwf	printf@f,c
+   666  0018D0  0E10               	movlw	high STR_1
+   667  0018D2  6E0E               	movwf	printf@f+1,c
+   668  0018D4  EC50  F00A         	call	_printf	;wreg free
+   669                           
+   670                           ;main.c: 47: mcpSetGain(2);
+   671  0018D8  0E02               	movlw	2
+   672  0018DA  EC2E  F00D         	call	_mcpSetGain
+   673                           
+   674                           ;main.c: 48: mcpInitSPI(0xAC);
+   675  0018DE  0EAC               	movlw	172
+   676  0018E0  EC7F  F00C         	call	_mcpInitSPI
+   677                           
+   678                           ;main.c: 49: printf("GANHO MCP: %u\r\n", mcpGetGanho());
+   679  0018E4  0E0B               	movlw	low STR_2
+   680  0018E6  6E0D               	movwf	printf@f,c
+   681  0018E8  0E10               	movlw	high STR_2
+   682  0018EA  6E0E               	movwf	printf@f+1,c
+   683  0018EC  EC91  F00D         	call	_mcpGetGanho	;wreg free
+   684  0018F0  6E1B               	movwf	??_setup& (0+255),c
+   685  0018F2  501B               	movf	??_setup,w,c
+   686  0018F4  6E0F               	movwf	?_printf+2,c
+   687  0018F6  6A10               	clrf	?_printf+3,c
+   688  0018F8  EC50  F00A         	call	_printf	;wreg free
+   689  0018FC  0012               	return		;funcret
+   690  0018FE                     __end_of_setup:
+   691                           	opt stack 0
+   692                           tblptru	equ	0xFF8
+   693                           intcon2	equ	0xFF1
+   694                           postinc0	equ	0xFEE
+   695                           wreg	equ	0xFE8
+   696                           postdec1	equ	0xFE5
+   697                           fsr1h	equ	0xFE2
+   698                           fsr1l	equ	0xFE1
+   699                           postinc2	equ	0xFDE
+   700                           postdec2	equ	0xFDD
+   701                           fsr2h	equ	0xFDA
+   702                           fsr2l	equ	0xFD9
+   703                           status	equ	0xFD8
+   704                           
+   705 ;; *************** function _printf *****************
+   706 ;; Defined at:
+   707 ;;		line 464 in file "C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\doprnt.c"
+   708 ;; Parameters:    Size  Location     Type
+   709 ;;  f               2   12[COMRAM] PTR const unsigned char 
+   710 ;;		 -> STR_4(10), STR_3(3), STR_2(16), STR_1(12), 
+   711 ;; Auto vars:     Size  Location     Type
+   712 ;;  tmpval          4    0        struct .
+   713 ;;  cp              3    0        PTR const unsigned char 
+   714 ;;  val             2   23[COMRAM] unsigned int 
+   715 ;;  ap              2   20[COMRAM] PTR void [1]
+   716 ;;		 -> ?_printf(2), 
+   717 ;;  len             2    0        unsigned int 
+   718 ;;  c               1   25[COMRAM] char 
+   719 ;;  flag            1   22[COMRAM] unsigned char 
+   720 ;;  prec            1   19[COMRAM] char 
+   721 ;; Return value:  Size  Location     Type
+   722 ;;                  2   12[COMRAM] int 
+   723 ;; Registers used:
+   724 ;;		wreg, fsr2l, fsr2h, status,2, status,0, tblptrl, tblptrh, tblptru, prodl, prodh, cstack
+   725 ;; Tracked objects:
+   726 ;;		On entry : 0/0
+   727 ;;		On exit  : 0/0
+   728 ;;		Unchanged: 0/0
+   729 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   730 ;;      Params:         6       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   731 ;;      Locals:         7       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   732 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   733 ;;      Totals:        14       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   734 ;;Total ram usage:       14 bytes
+   735 ;; Hardware stack levels used:    1
+   736 ;; Hardware stack levels required when called:    1
+   737 ;; This function calls:
+   738 ;;		___lwdiv
+   739 ;;		___lwmod
+   740 ;;		_putch
+   741 ;; This function is called by:
+   742 ;;		_setup
+   743 ;;		_main
+   744 ;; This function uses a non-reentrant model
+   745 ;;
+   746                           
+   747                           	psect	text2
+   748  0014A0                     __ptext2:
+   749                           	opt stack 0
+   750  0014A0                     _printf:
+   751                           	opt stack 28
+   752                           
+   753                           ;doprnt.c: 466: va_list ap;
+   754                           ;doprnt.c: 499: signed char c;
+   755                           ;doprnt.c: 506: signed char prec;
+   756                           ;doprnt.c: 508: unsigned char flag;
+   757                           ;doprnt.c: 523: union {
+   758                           ;doprnt.c: 524: unsigned long vd;
+   759                           ;doprnt.c: 525: double integ;
+   760                           ;doprnt.c: 526: } tmpval;
+   761                           ;doprnt.c: 528: unsigned int val;
+   762                           ;doprnt.c: 529: unsigned len;
+   763                           ;doprnt.c: 530: const char * cp;
+   764                           ;doprnt.c: 533: *ap = __va_start();
+   765                           
+   766                           ;incstack = 0
+   767  0014A0  0E0F               	movlw	low (?_printf+2)
+   768  0014A2  6E15               	movwf	printf@ap,c
+   769  0014A4  0E00               	movlw	high (?_printf+2)
+   770  0014A6  6E16               	movwf	printf@ap+1,c
+   771                           
+   772                           ;doprnt.c: 536: while(c = *f++) {
+   773  0014A8  D093               	goto	u860
+   774  0014AA                     
+   775                           ;doprnt.c: 538: if(c != '%')
+   776  0014AA  0E25               	movlw	37
+   777  0014AC  181A               	xorwf	printf@c,w,c
+   778  0014AE  B4D8               	btfsc	status,2,c
+   779  0014B0  D004               	goto	l112
+   780                           
+   781                           ;doprnt.c: 540: {
+   782                           ;doprnt.c: 541: (putch(c) );
+   783  0014B2  501A               	movf	printf@c,w,c
+   784  0014B4  EC8B  F00D         	call	_putch
+   785                           
+   786                           ;doprnt.c: 542: continue;
+   787  0014B8  D08B               	goto	u860
+   788  0014BA                     l112:
+   789                           
+   790                           ;doprnt.c: 543: }
+   791                           ;doprnt.c: 548: flag = 0;
+   792  0014BA  0E00               	movlw	0
+   793  0014BC  6E17               	movwf	printf@flag,c
+   794                           
+   795                           ;doprnt.c: 635: switch(c = *f++) {
+   796  0014BE  D002               	goto	l113
+   797  0014C0                     
+   798                           ;doprnt.c: 818: flag |= 0x40;
+   799  0014C0  8C17               	bsf	printf@flag,6,c
+   800                           
+   801                           ;doprnt.c: 822: }
+   802                           
+   803                           ;doprnt.c: 819: break;
+   804  0014C2  D017               	goto	l118
+   805  0014C4                     l113:
+   806  0014C4  C00D  FFF6         	movff	printf@f,tblptrl
+   807  0014C8  C00E  FFF7         	movff	printf@f+1,tblptrh
+   808  0014CC  4A0D               	infsnz	printf@f,f,c
+   809  0014CE  2A0E               	incf	printf@f+1,f,c
+   810  0014D0                     	if	0	;tblptru may be non-zero
+   811  0014D0                     	endif
+   812  0014D0                     	if	0	;tblptru may be non-zero
+   813  0014D0                     	endif
+   814  0014D0  0008               	tblrd		*
+   815  0014D2  CFF5 F01A          	movff	tablat,printf@c
+   816  0014D6  501A               	movf	printf@c,w,c
+   817                           
+   818                           ; Switch size 1, requested type "space"
+   819                           ; Number of cases is 4, Range of values is 0 to 117
+   820                           ; switch strategies available:
+   821                           ; Name         Instructions Cycles
+   822                           ; simple_byte           13     7 (average)
+   823                           ;	Chosen strategy is simple_byte
+   824  0014D8  0A00               	xorlw	0	; case 0
+   825  0014DA  B4D8               	btfsc	status,2,c
+   826  0014DC  0012               	return	
+   827  0014DE  0A64               	xorlw	100	; case 100
+   828  0014E0  B4D8               	btfsc	status,2,c
+   829  0014E2  D007               	goto	l118
+   830  0014E4  0A0D               	xorlw	13	; case 105
+   831  0014E6  B4D8               	btfsc	status,2,c
+   832  0014E8  D004               	goto	l118
+   833  0014EA  0A1C               	xorlw	28	; case 117
+   834  0014EC  B4D8               	btfsc	status,2,c
+   835  0014EE  D7E8               	goto	l120
+   836  0014F0  D06F               	goto	u860
+   837  0014F2                     l118:
+   838                           
+   839                           ;doprnt.c: 1251: if((flag & 0x40) == 0x00)
+   840  0014F2  BC17               	btfsc	printf@flag,6,c
+   841  0014F4  D015               	goto	l121
+   842                           
+   843                           ;doprnt.c: 1253: {
+   844                           ;doprnt.c: 1259: val = (int)(*(int *)__va_arg((*(int **)ap), (int)0));
+   845  0014F6  C015  FFD9         	movff	printf@ap,fsr2l
+   846  0014FA  C016  FFDA         	movff	printf@ap+1,fsr2h
+   847  0014FE  CFDE F018          	movff	postinc2,printf@val
+   848  001502  CFDD F019          	movff	postdec2,printf@val+1
+   849  001506  0E02               	movlw	2
+   850  001508  2615               	addwf	printf@ap,f,c
+   851  00150A  0E00               	movlw	0
+   852  00150C  2216               	addwfc	printf@ap+1,f,c
+   853                           
+   854                           ;doprnt.c: 1261: if((int)val < 0) {
+   855  00150E  AE19               	btfss	printf@val+1,7,c
+   856  001510  D013               	goto	l123
+   857                           
+   858                           ;doprnt.c: 1262: flag |= 0x03;
+   859  001512  0E03               	movlw	3
+   860  001514  1217               	iorwf	printf@flag,f,c
+   861                           
+   862                           ;doprnt.c: 1263: val = -val;
+   863  001516  6C18               	negf	printf@val,c
+   864  001518  1E19               	comf	printf@val+1,f,c
+   865  00151A  B0D8               	btfsc	status,0,c
+   866  00151C  2A19               	incf	printf@val+1,f,c
+   867                           
+   868                           ;doprnt.c: 1264: }
+   869                           ;doprnt.c: 1266: }
+   870  00151E  D00C               	goto	l123
+   871  001520                     l121:
+   872                           
+   873                           ;doprnt.c: 1268: else
+   874                           ;doprnt.c: 1273: {
+   875                           ;doprnt.c: 1286: val = (*(unsigned *)__va_arg((*(unsigned **)ap), (unsigned)0));
+   876  001520  C015  FFD9         	movff	printf@ap,fsr2l
+   877  001524  C016  FFDA         	movff	printf@ap+1,fsr2h
+   878  001528  CFDE F018          	movff	postinc2,printf@val
+   879  00152C  CFDD F019          	movff	postdec2,printf@val+1
+   880  001530  0E02               	movlw	2
+   881  001532  2615               	addwf	printf@ap,f,c
+   882  001534  0E00               	movlw	0
+   883  001536  2216               	addwfc	printf@ap+1,f,c
+   884  001538                     l123:
+   885                           
+   886                           ;doprnt.c: 1287: }
+   887                           ;doprnt.c: 1305: for(c = 1 ; c != sizeof dpowers/sizeof dpowers[0] ; c++)
+   888  001538  0E01               	movlw	1
+   889  00153A  6E1A               	movwf	printf@c,c
+   890  00153C                     l1284:
+   891  00153C  0E05               	movlw	5
+   892  00153E  181A               	xorwf	printf@c,w,c
+   893  001540  B4D8               	btfsc	status,2,c
+   894  001542  D012               	goto	u840
+   895                           
+   896                           ;doprnt.c: 1306: if(val < dpowers[c])
+   897  001544  501A               	movf	printf@c,w,c
+   898  001546  0D02               	mullw	2
+   899  001548  0E01               	movlw	low _dpowers
+   900  00154A  24F3               	addwf	prodl,w,c
+   901  00154C  6EF6               	movwf	tblptrl,c
+   902  00154E  0E10               	movlw	high _dpowers
+   903  001550  20F4               	addwfc	prodh,w,c
+   904  001552  6EF7               	movwf	tblptrh,c
+   905  001554                     	if	0	;There are less than 3 active tblptr bytes
+   906  001554                     	endif
+   907  001554  0009               	tblrd		*+
+   908  001556  50F5               	movf	tablat,w,c
+   909  001558  5C18               	subwf	printf@val,w,c
+   910  00155A  0009               	tblrd		*+
+   911  00155C  50F5               	movf	tablat,w,c
+   912  00155E  5819               	subwfb	printf@val+1,w,c
+   913  001560  A0D8               	btfss	status,0,c
+   914  001562  D002               	goto	u840
+   915                           
+   916                           ;doprnt.c: 1307: break;
+   917  001564  2A1A               	incf	printf@c,f,c
+   918  001566  D7EA               	goto	l1284
+   919  001568                     u840:
+   920                           
+   921                           ;doprnt.c: 1422: {
+   922                           ;doprnt.c: 1438: if(flag & 0x03)
+   923  001568  C017  F013         	movff	printf@flag,??_printf
+   924  00156C  0E03               	movlw	3
+   925  00156E  1613               	andwf	??_printf,f,c
+   926  001570  B4D8               	btfsc	status,2,c
+   927  001572  D003               	goto	l127
+   928                           
+   929                           ;doprnt.c: 1439: (putch('-') );
+   930  001574  0E2D               	movlw	45
+   931  001576  EC8B  F00D         	call	_putch
+   932  00157A                     l127:
+   933                           
+   934                           ;doprnt.c: 1469: }
+   935                           ;doprnt.c: 1472: prec = c;
+   936  00157A  C01A  F014         	movff	printf@c,printf@prec
+   937                           
+   938                           ;doprnt.c: 1474: while(prec--) {
+   939  00157E  D024               	goto	l128
+   940  001580                     
+   941                           ;doprnt.c: 1478: {
+   942                           ;doprnt.c: 1489: c = (val / dpowers[prec]) % 10 + '0';
+   943  001580  5014               	movf	printf@prec,w,c
+   944  001582  0D02               	mullw	2
+   945  001584  0E01               	movlw	low _dpowers
+   946  001586  24F3               	addwf	prodl,w,c
+   947  001588  6EF6               	movwf	tblptrl,c
+   948  00158A  0E10               	movlw	high _dpowers
+   949  00158C  20F4               	addwfc	prodh,w,c
+   950  00158E  6EF7               	movwf	tblptrh,c
+   951  001590                     	if	0	;There are less than 3 active tblptr bytes
+   952  001590                     	endif
+   953  001590  0009               	tblrd		*+
+   954  001592  CFF5 F003          	movff	tablat,___lwdiv@divisor
+   955  001596  000A               	tblrd		*-
+   956  001598  CFF5 F004          	movff	tablat,___lwdiv@divisor+1
+   957  00159C  C018  F001         	movff	printf@val,___lwdiv@dividend
+   958  0015A0  C019  F002         	movff	printf@val+1,___lwdiv@dividend+1
+   959  0015A4  EC05  F00D         	call	___lwdiv	;wreg free
+   960  0015A8  C001  F008         	movff	?___lwdiv,___lwmod@dividend
+   961  0015AC  C002  F009         	movff	?___lwdiv+1,___lwmod@dividend+1
+   962  0015B0  0E00               	movlw	0
+   963  0015B2  6E0B               	movwf	___lwmod@divisor+1,c
+   964  0015B4  0E0A               	movlw	10
+   965  0015B6  6E0A               	movwf	___lwmod@divisor,c
+   966  0015B8  EC54  F00D         	call	___lwmod	;wreg free
+   967  0015BC  5008               	movf	?___lwmod,w,c
+   968  0015BE  0F30               	addlw	48
+   969  0015C0  6E1A               	movwf	printf@c,c
+   970                           
+   971                           ;doprnt.c: 1523: }
+   972                           ;doprnt.c: 1524: (putch(c) );
+   973  0015C2  501A               	movf	printf@c,w,c
+   974  0015C4  EC8B  F00D         	call	_putch
+   975  0015C8                     l128:
+   976  0015C8  0614               	decf	printf@prec,f,c
+   977  0015CA  2814               	incf	printf@prec,w,c
+   978  0015CC  A4D8               	btfss	status,2,c
+   979  0015CE  D7D8               	goto	l129
+   980  0015D0                     u860:
+   981  0015D0  C00D  FFF6         	movff	printf@f,tblptrl
+   982  0015D4  C00E  FFF7         	movff	printf@f+1,tblptrh
+   983  0015D8  4A0D               	infsnz	printf@f,f,c
+   984  0015DA  2A0E               	incf	printf@f+1,f,c
+   985  0015DC                     	if	0	;tblptru may be non-zero
+   986  0015DC                     	endif
+   987  0015DC                     	if	0	;tblptru may be non-zero
+   988  0015DC                     	endif
+   989  0015DC  0008               	tblrd		*
+   990  0015DE  CFF5 F01A          	movff	tablat,printf@c
+   991  0015E2  501A               	movf	printf@c,w,c
+   992  0015E4  B4D8               	btfsc	status,2,c
+   993  0015E6  0012               	return	
+   994  0015E8  D760               	goto	l111
+   995  0015EA                     __end_of_printf:
+   996                           	opt stack 0
+   997                           tblptru	equ	0xFF8
+   998                           tblptrh	equ	0xFF7
+   999                           tblptrl	equ	0xFF6
+  1000                           tablat	equ	0xFF5
+  1001                           prodh	equ	0xFF4
+  1002                           prodl	equ	0xFF3
+  1003                           intcon2	equ	0xFF1
+  1004                           postinc0	equ	0xFEE
+  1005                           wreg	equ	0xFE8
+  1006                           postdec1	equ	0xFE5
+  1007                           fsr1h	equ	0xFE2
+  1008                           fsr1l	equ	0xFE1
+  1009                           postinc2	equ	0xFDE
+  1010                           postdec2	equ	0xFDD
+  1011                           fsr2h	equ	0xFDA
+  1012                           fsr2l	equ	0xFD9
+  1013                           status	equ	0xFD8
+  1014                           
+  1015 ;; *************** function _putch *****************
+  1016 ;; Defined at:
+  1017 ;;		line 18 in file "serial.h"
+  1018 ;; Parameters:    Size  Location     Type
+  1019 ;;  data            1    wreg     unsigned char 
+  1020 ;; Auto vars:     Size  Location     Type
+  1021 ;;  data            1    0[COMRAM] unsigned char 
+  1022 ;; Return value:  Size  Location     Type
+  1023 ;;                  1    wreg      void 
+  1024 ;; Registers used:
+  1025 ;;		wreg
+  1026 ;; Tracked objects:
+  1027 ;;		On entry : 0/0
+  1028 ;;		On exit  : 0/0
+  1029 ;;		Unchanged: 0/0
+  1030 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1031 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1032 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1033 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1034 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1035 ;;Total ram usage:        1 bytes
+  1036 ;; Hardware stack levels used:    1
+  1037 ;; This function calls:
+  1038 ;;		Nothing
+  1039 ;; This function is called by:
+  1040 ;;		_printf
+  1041 ;; This function uses a non-reentrant model
+  1042 ;;
+  1043                           
+  1044                           	psect	text3
+  1045  001B16                     __ptext3:
+  1046                           	opt stack 0
+  1047  001B16                     _putch:
+  1048                           	opt stack 28
+  1049                           
+  1050                           ;incstack = 0
+  1051                           ;putch@data stored from wreg
+  1052  001B16  6E01               	movwf	putch@data,c
+  1053  001B18                     
+  1054                           ;serial.h: 20: continue;
+  1055                           
+  1056                           ;serial.h: 19: while(!TXIF)
+  1057  001B18  A89E               	btfss	3998,4,c	;volatile
+  1058  001B1A  D7FE               	goto	l754
+  1059                           
+  1060                           ;serial.h: 21: TXREG = data;
+  1061  001B1C  C001  FFAD         	movff	putch@data,4013	;volatile
+  1062  001B20  0012               	return		;funcret
+  1063  001B22                     __end_of_putch:
+  1064                           	opt stack 0
+  1065                           tblptru	equ	0xFF8
+  1066                           tblptrh	equ	0xFF7
+  1067                           tblptrl	equ	0xFF6
+  1068                           tablat	equ	0xFF5
+  1069                           prodh	equ	0xFF4
+  1070                           prodl	equ	0xFF3
+  1071                           intcon2	equ	0xFF1
+  1072                           postinc0	equ	0xFEE
+  1073                           wreg	equ	0xFE8
+  1074                           postdec1	equ	0xFE5
+  1075                           fsr1h	equ	0xFE2
+  1076                           fsr1l	equ	0xFE1
+  1077                           postinc2	equ	0xFDE
+  1078                           postdec2	equ	0xFDD
+  1079                           fsr2h	equ	0xFDA
+  1080                           fsr2l	equ	0xFD9
+  1081                           status	equ	0xFD8
+  1082                           
+  1083 ;; *************** function ___lwmod *****************
+  1084 ;; Defined at:
+  1085 ;;		line 8 in file "C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwmod.c"
+  1086 ;; Parameters:    Size  Location     Type
+  1087 ;;  dividend        2    7[COMRAM] unsigned int 
+  1088 ;;  divisor         2    9[COMRAM] unsigned int 
+  1089 ;; Auto vars:     Size  Location     Type
+  1090 ;;  counter         1   11[COMRAM] unsigned char 
+  1091 ;; Return value:  Size  Location     Type
+  1092 ;;                  2    7[COMRAM] unsigned int 
+  1093 ;; Registers used:
+  1094 ;;		wreg, status,2, status,0
+  1095 ;; Tracked objects:
+  1096 ;;		On entry : 0/0
+  1097 ;;		On exit  : 0/0
+  1098 ;;		Unchanged: 0/0
+  1099 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1100 ;;      Params:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1101 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1102 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1103 ;;      Totals:         5       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1104 ;;Total ram usage:        5 bytes
+  1105 ;; Hardware stack levels used:    1
+  1106 ;; This function calls:
+  1107 ;;		Nothing
+  1108 ;; This function is called by:
+  1109 ;;		_printf
+  1110 ;; This function uses a non-reentrant model
+  1111 ;;
+  1112                           
+  1113                           	psect	text4
+  1114  001AA8                     __ptext4:
+  1115                           	opt stack 0
+  1116  001AA8                     ___lwmod:
+  1117                           	opt stack 28
+  1118                           
+  1119                           ;incstack = 0
+  1120  001AA8  500A               	movf	___lwmod@divisor,w,c
+  1121  001AAA  100B               	iorwf	___lwmod@divisor+1,w,c
+  1122  001AAC  B4D8               	btfsc	status,2,c
+  1123  001AAE  D018               	goto	l551
+  1124  001AB0  0E01               	movlw	1
+  1125  001AB2  6E0C               	movwf	___lwmod@counter,c
+  1126  001AB4  D004               	goto	l546
+  1127  001AB6  90D8               	bcf	status,0,c
+  1128  001AB8  360A               	rlcf	___lwmod@divisor,f,c
+  1129  001ABA  360B               	rlcf	___lwmod@divisor+1,f,c
+  1130  001ABC  2A0C               	incf	___lwmod@counter,f,c
+  1131  001ABE                     l546:
+  1132  001ABE  AE0B               	btfss	___lwmod@divisor+1,7,c
+  1133  001AC0  D7FA               	goto	l547
+  1134  001AC2                     u760:
+  1135  001AC2  500A               	movf	___lwmod@divisor,w,c
+  1136  001AC4  5C08               	subwf	___lwmod@dividend,w,c
+  1137  001AC6  500B               	movf	___lwmod@divisor+1,w,c
+  1138  001AC8  5809               	subwfb	___lwmod@dividend+1,w,c
+  1139  001ACA  A0D8               	btfss	status,0,c
+  1140  001ACC  D004               	goto	l550
+  1141  001ACE  500A               	movf	___lwmod@divisor,w,c
+  1142  001AD0  5E08               	subwf	___lwmod@dividend,f,c
+  1143  001AD2  500B               	movf	___lwmod@divisor+1,w,c
+  1144  001AD4  5A09               	subwfb	___lwmod@dividend+1,f,c
+  1145  001AD6                     l550:
+  1146  001AD6  90D8               	bcf	status,0,c
+  1147  001AD8  320B               	rrcf	___lwmod@divisor+1,f,c
+  1148  001ADA  320A               	rrcf	___lwmod@divisor,f,c
+  1149  001ADC  2E0C               	decfsz	___lwmod@counter,f,c
+  1150  001ADE  D7F1               	goto	u760
+  1151  001AE0                     l551:
+  1152  001AE0  C008  F008         	movff	___lwmod@dividend,?___lwmod
+  1153  001AE4  C009  F009         	movff	___lwmod@dividend+1,?___lwmod+1
+  1154  001AE8  0012               	return		;funcret
+  1155  001AEA                     __end_of___lwmod:
+  1156                           	opt stack 0
+  1157                           tblptru	equ	0xFF8
+  1158                           tblptrh	equ	0xFF7
+  1159                           tblptrl	equ	0xFF6
+  1160                           tablat	equ	0xFF5
+  1161                           prodh	equ	0xFF4
+  1162                           prodl	equ	0xFF3
+  1163                           intcon2	equ	0xFF1
+  1164                           postinc0	equ	0xFEE
+  1165                           wreg	equ	0xFE8
+  1166                           postdec1	equ	0xFE5
+  1167                           fsr1h	equ	0xFE2
+  1168                           fsr1l	equ	0xFE1
+  1169                           postinc2	equ	0xFDE
+  1170                           postdec2	equ	0xFDD
+  1171                           fsr2h	equ	0xFDA
+  1172                           fsr2l	equ	0xFD9
+  1173                           status	equ	0xFD8
+  1174                           
+  1175 ;; *************** function ___lwdiv *****************
+  1176 ;; Defined at:
+  1177 ;;		line 8 in file "C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\lwdiv.c"
+  1178 ;; Parameters:    Size  Location     Type
+  1179 ;;  dividend        2    0[COMRAM] unsigned int 
+  1180 ;;  divisor         2    2[COMRAM] unsigned int 
+  1181 ;; Auto vars:     Size  Location     Type
+  1182 ;;  quotient        2    4[COMRAM] unsigned int 
+  1183 ;;  counter         1    6[COMRAM] unsigned char 
+  1184 ;; Return value:  Size  Location     Type
+  1185 ;;                  2    0[COMRAM] unsigned int 
+  1186 ;; Registers used:
+  1187 ;;		wreg, status,2, status,0
+  1188 ;; Tracked objects:
+  1189 ;;		On entry : 0/0
+  1190 ;;		On exit  : 0/0
+  1191 ;;		Unchanged: 0/0
+  1192 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1193 ;;      Params:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1194 ;;      Locals:         3       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1195 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1196 ;;      Totals:         7       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1197 ;;Total ram usage:        7 bytes
+  1198 ;; Hardware stack levels used:    1
+  1199 ;; This function calls:
+  1200 ;;		Nothing
+  1201 ;; This function is called by:
+  1202 ;;		_printf
+  1203 ;; This function uses a non-reentrant model
+  1204 ;;
+  1205                           
+  1206                           	psect	text5
+  1207  001A0A                     __ptext5:
+  1208                           	opt stack 0
+  1209  001A0A                     ___lwdiv:
+  1210                           	opt stack 28
+  1211                           
+  1212                           ;incstack = 0
+  1213  001A0A  0E00               	movlw	0
+  1214  001A0C  6E06               	movwf	___lwdiv@quotient+1,c
+  1215  001A0E  0E00               	movlw	0
+  1216  001A10  6E05               	movwf	___lwdiv@quotient,c
+  1217  001A12  5003               	movf	___lwdiv@divisor,w,c
+  1218  001A14  1004               	iorwf	___lwdiv@divisor+1,w,c
+  1219  001A16  B4D8               	btfsc	status,2,c
+  1220  001A18  D01C               	goto	l541
+  1221  001A1A  0E01               	movlw	1
+  1222  001A1C  6E07               	movwf	___lwdiv@counter,c
+  1223  001A1E  D004               	goto	l536
+  1224  001A20  90D8               	bcf	status,0,c
+  1225  001A22  3603               	rlcf	___lwdiv@divisor,f,c
+  1226  001A24  3604               	rlcf	___lwdiv@divisor+1,f,c
+  1227  001A26  2A07               	incf	___lwdiv@counter,f,c
+  1228  001A28                     l536:
+  1229  001A28  AE04               	btfss	___lwdiv@divisor+1,7,c
+  1230  001A2A  D7FA               	goto	l537
+  1231  001A2C                     u730:
+  1232  001A2C  90D8               	bcf	status,0,c
+  1233  001A2E  3605               	rlcf	___lwdiv@quotient,f,c
+  1234  001A30  3606               	rlcf	___lwdiv@quotient+1,f,c
+  1235  001A32  5003               	movf	___lwdiv@divisor,w,c
+  1236  001A34  5C01               	subwf	___lwdiv@dividend,w,c
+  1237  001A36  5004               	movf	___lwdiv@divisor+1,w,c
+  1238  001A38  5802               	subwfb	___lwdiv@dividend+1,w,c
+  1239  001A3A  A0D8               	btfss	status,0,c
+  1240  001A3C  D005               	goto	l540
+  1241  001A3E  5003               	movf	___lwdiv@divisor,w,c
+  1242  001A40  5E01               	subwf	___lwdiv@dividend,f,c
+  1243  001A42  5004               	movf	___lwdiv@divisor+1,w,c
+  1244  001A44  5A02               	subwfb	___lwdiv@dividend+1,f,c
+  1245  001A46  8005               	bsf	___lwdiv@quotient,0,c
+  1246  001A48                     l540:
+  1247  001A48  90D8               	bcf	status,0,c
+  1248  001A4A  3204               	rrcf	___lwdiv@divisor+1,f,c
+  1249  001A4C  3203               	rrcf	___lwdiv@divisor,f,c
+  1250  001A4E  2E07               	decfsz	___lwdiv@counter,f,c
+  1251  001A50  D7ED               	goto	u730
+  1252  001A52                     l541:
+  1253  001A52  C005  F001         	movff	___lwdiv@quotient,?___lwdiv
+  1254  001A56  C006  F002         	movff	___lwdiv@quotient+1,?___lwdiv+1
+  1255  001A5A  0012               	return		;funcret
+  1256  001A5C                     __end_of___lwdiv:
+  1257                           	opt stack 0
+  1258                           tblptru	equ	0xFF8
+  1259                           tblptrh	equ	0xFF7
+  1260                           tblptrl	equ	0xFF6
+  1261                           tablat	equ	0xFF5
+  1262                           prodh	equ	0xFF4
+  1263                           prodl	equ	0xFF3
+  1264                           intcon2	equ	0xFF1
+  1265                           postinc0	equ	0xFEE
+  1266                           wreg	equ	0xFE8
+  1267                           postdec1	equ	0xFE5
+  1268                           fsr1h	equ	0xFE2
+  1269                           fsr1l	equ	0xFE1
+  1270                           postinc2	equ	0xFDE
+  1271                           postdec2	equ	0xFDD
+  1272                           fsr2h	equ	0xFDA
+  1273                           fsr2l	equ	0xFD9
+  1274                           status	equ	0xFD8
+  1275                           
+  1276 ;; *************** function _mcpSetGain *****************
+  1277 ;; Defined at:
+  1278 ;;		line 68 in file "mcp3909.h"
+  1279 ;; Parameters:    Size  Location     Type
+  1280 ;;  ganho           1    wreg     unsigned char 
+  1281 ;; Auto vars:     Size  Location     Type
+  1282 ;;  ganho           1    0[COMRAM] unsigned char 
+  1283 ;; Return value:  Size  Location     Type
+  1284 ;;                  1    wreg      void 
+  1285 ;; Registers used:
+  1286 ;;		wreg, status,2, status,0
+  1287 ;; Tracked objects:
+  1288 ;;		On entry : 0/0
+  1289 ;;		On exit  : 0/0
+  1290 ;;		Unchanged: 0/0
+  1291 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1292 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1293 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1294 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1295 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1296 ;;Total ram usage:        1 bytes
+  1297 ;; Hardware stack levels used:    1
+  1298 ;; This function calls:
+  1299 ;;		Nothing
+  1300 ;; This function is called by:
+  1301 ;;		_setup
+  1302 ;; This function uses a non-reentrant model
+  1303 ;;
+  1304                           
+  1305                           	psect	text6
+  1306  001A5C                     __ptext6:
+  1307                           	opt stack 0
+  1308  001A5C                     _mcpSetGain:
+  1309                           	opt stack 29
+  1310                           
+  1311                           ;incstack = 0
+  1312                           ;mcpSetGain@ganho stored from wreg
+  1313  001A5C  6E01               	movwf	mcpSetGain@ganho,c
+  1314                           
+  1315                           ;mcp3909.h: 70: TRISBbits.TRISB5 = 0;
+  1316  001A5E  9A93               	bcf	3987,5,c	;volatile
+  1317                           
+  1318                           ;mcp3909.h: 71: TRISBbits.TRISB4 = 0;
+  1319  001A60  9893               	bcf	3987,4,c	;volatile
+  1320                           
+  1321                           ;mcp3909.h: 73: switch(ganho){
+  1322  001A62  D014               	goto	l45
+  1323  001A64                     l46:
+  1324  001A64  9A81               	bcf	3969,5,c	;volatile
+  1325                           
+  1326                           ;mcp3909.h: 75: PORTBbits.RB4 = 0;
+  1327  001A66  9881               	bcf	3969,4,c	;volatile
+  1328                           
+  1329                           ;mcp3909.h: 76: mcp_ganho=0;
+  1330  001A68  0E00               	movlw	0
+  1331  001A6A  6E25               	movwf	_mcp_ganho,c
+  1332                           
+  1333                           ;mcp3909.h: 77: break;
+  1334  001A6C  0012               	return	
+  1335  001A6E                     l48:
+  1336  001A6E  8A81               	bsf	3969,5,c	;volatile
+  1337                           
+  1338                           ;mcp3909.h: 80: PORTBbits.RB4 = 0;
+  1339  001A70  9881               	bcf	3969,4,c	;volatile
+  1340                           
+  1341                           ;mcp3909.h: 81: mcp_ganho=1;
+  1342  001A72  0E01               	movlw	1
+  1343  001A74  6E25               	movwf	_mcp_ganho,c
+  1344                           
+  1345                           ;mcp3909.h: 82: break;
+  1346  001A76  0012               	return	
+  1347  001A78                     l49:
+  1348  001A78  9A81               	bcf	3969,5,c	;volatile
+  1349                           
+  1350                           ;mcp3909.h: 85: PORTBbits.RB4 = 1;
+  1351  001A7A  8881               	bsf	3969,4,c	;volatile
+  1352                           
+  1353                           ;mcp3909.h: 86: mcp_ganho=2;
+  1354  001A7C  0E02               	movlw	2
+  1355  001A7E  6E25               	movwf	_mcp_ganho,c
+  1356                           
+  1357                           ;mcp3909.h: 87: break;
+  1358  001A80  0012               	return	
+  1359  001A82                     l50:
+  1360  001A82  8A81               	bsf	3969,5,c	;volatile
+  1361                           
+  1362                           ;mcp3909.h: 90: PORTBbits.RB4 = 1;
+  1363  001A84  8881               	bsf	3969,4,c	;volatile
+  1364                           
+  1365                           ;mcp3909.h: 91: mcp_ganho=3;
+  1366  001A86  0E03               	movlw	3
+  1367  001A88  6E25               	movwf	_mcp_ganho,c
+  1368                           
+  1369                           ;mcp3909.h: 93: }
+  1370                           
+  1371                           ;mcp3909.h: 92: break;
+  1372  001A8A  0012               	return	
+  1373  001A8C                     l45:
+  1374  001A8C  5001               	movf	mcpSetGain@ganho,w,c
+  1375                           
+  1376                           ; Switch size 1, requested type "space"
+  1377                           ; Number of cases is 4, Range of values is 0 to 3
+  1378                           ; switch strategies available:
+  1379                           ; Name         Instructions Cycles
+  1380                           ; simple_byte           13     7 (average)
+  1381                           ;	Chosen strategy is simple_byte
+  1382  001A8E  0A00               	xorlw	0	; case 0
+  1383  001A90  B4D8               	btfsc	status,2,c
+  1384  001A92  D7E8               	goto	l46
+  1385  001A94  0A01               	xorlw	1	; case 1
+  1386  001A96  B4D8               	btfsc	status,2,c
+  1387  001A98  D7EA               	goto	l48
+  1388  001A9A  0A03               	xorlw	3	; case 2
+  1389  001A9C  B4D8               	btfsc	status,2,c
+  1390  001A9E  D7EC               	goto	l49
+  1391  001AA0  0A01               	xorlw	1	; case 3
+  1392  001AA2  A4D8               	btfss	status,2,c
+  1393  001AA4  0012               	return	
+  1394  001AA6  D7ED               	goto	l50
+  1395  001AA8                     __end_of_mcpSetGain:
+  1396                           	opt stack 0
+  1397                           tblptru	equ	0xFF8
+  1398                           tblptrh	equ	0xFF7
+  1399                           tblptrl	equ	0xFF6
+  1400                           tablat	equ	0xFF5
+  1401                           prodh	equ	0xFF4
+  1402                           prodl	equ	0xFF3
+  1403                           intcon2	equ	0xFF1
+  1404                           postinc0	equ	0xFEE
+  1405                           wreg	equ	0xFE8
+  1406                           postdec1	equ	0xFE5
+  1407                           fsr1h	equ	0xFE2
+  1408                           fsr1l	equ	0xFE1
+  1409                           postinc2	equ	0xFDE
+  1410                           postdec2	equ	0xFDD
+  1411                           fsr2h	equ	0xFDA
+  1412                           fsr2l	equ	0xFD9
+  1413                           status	equ	0xFD8
+  1414                           
+  1415 ;; *************** function _mcpInitSPI *****************
+  1416 ;; Defined at:
+  1417 ;;		line 115 in file "mcp3909.h"
+  1418 ;; Parameters:    Size  Location     Type
+  1419 ;;  modo            1    wreg     unsigned char 
+  1420 ;; Auto vars:     Size  Location     Type
+  1421 ;;  modo            1    0[COMRAM] unsigned char 
+  1422 ;; Return value:  Size  Location     Type
+  1423 ;;                  1    wreg      void 
+  1424 ;; Registers used:
+  1425 ;;		wreg, status,2, status,0
+  1426 ;; Tracked objects:
+  1427 ;;		On entry : 0/0
+  1428 ;;		On exit  : 0/0
+  1429 ;;		Unchanged: 0/0
+  1430 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1431 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1432 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1433 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1434 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1435 ;;Total ram usage:        1 bytes
+  1436 ;; Hardware stack levels used:    1
+  1437 ;; This function calls:
+  1438 ;;		Nothing
+  1439 ;; This function is called by:
+  1440 ;;		_setup
+  1441 ;; This function uses a non-reentrant model
+  1442 ;;
+  1443                           
+  1444                           	psect	text7
+  1445  0018FE                     __ptext7:
+  1446                           	opt stack 0
+  1447  0018FE                     _mcpInitSPI:
+  1448                           	opt stack 29
+  1449                           
+  1450                           ;incstack = 0
+  1451                           ;mcpInitSPI@modo stored from wreg
+  1452  0018FE  6E01               	movwf	mcpInitSPI@modo,c
+  1453                           
+  1454                           ;mcp3909.h: 117: TRISBbits.TRISB0 = 0;
+  1455  001900  9093               	bcf	3987,0,c	;volatile
+  1456                           
+  1457                           ;mcp3909.h: 118: TRISBbits.TRISB2 = 0;
+  1458  001902  9493               	bcf	3987,2,c	;volatile
+  1459                           
+  1460                           ;mcp3909.h: 119: TRISCbits.TRISC3 = 1;
+  1461  001904  8694               	bsf	3988,3,c	;volatile
+  1462                           
+  1463                           ;mcp3909.h: 120: TRISBbits.TRISB1 = 0;
+  1464  001906  9293               	bcf	3987,1,c	;volatile
+  1465                           
+  1466                           ;mcp3909.h: 121: TRISBbits.TRISB3 = 0;
+  1467  001908  9693               	bcf	3987,3,c	;volatile
+  1468                           
+  1469                           ;mcp3909.h: 123: PORTBbits.RB0 = 0;
+  1470  00190A  9081               	bcf	3969,0,c	;volatile
+  1471                           
+  1472                           ;mcp3909.h: 124: PORTBbits.RB3 = 1;
+  1473  00190C  8681               	bsf	3969,3,c	;volatile
+  1474                           
+  1475                           ;mcp3909.h: 125: PORTBbits.RB1 = 0;
+  1476  00190E  9281               	bcf	3969,1,c	;volatile
+  1477                           
+  1478                           ;mcp3909.h: 127: if(modo == 0xA4){
+  1479  001910  0EA4               	movlw	164
+  1480  001912  1801               	xorwf	mcpInitSPI@modo,w,c
+  1481  001914  A4D8               	btfss	status,2,c
+  1482  001916  D01D               	goto	l57
+  1483                           
+  1484                           ;mcp3909.h: 129: PORTBbits.RB0 = 1;
+  1485  001918  8081               	bsf	3969,0,c	;volatile
+  1486                           
+  1487                           ;mcp3909.h: 131: PORTBbits.RB3=0;
+  1488  00191A  9681               	bcf	3969,3,c	;volatile
+  1489                           
+  1490                           ;mcp3909.h: 134: PORTBbits.RB1 = 0;
+  1491  00191C  9281               	bcf	3969,1,c	;volatile
+  1492                           
+  1493                           ;mcp3909.h: 135: PORTBbits.RB2 = 1;
+  1494  00191E  8481               	bsf	3969,2,c	;volatile
+  1495                           
+  1496                           ;mcp3909.h: 136: PORTBbits.RB1 = 1;
+  1497  001920  8281               	bsf	3969,1,c	;volatile
+  1498                           
+  1499                           ;mcp3909.h: 139: PORTBbits.RB1 = 0;
+  1500  001922  9281               	bcf	3969,1,c	;volatile
+  1501                           
+  1502                           ;mcp3909.h: 140: PORTBbits.RB2 = 0;
+  1503  001924  9481               	bcf	3969,2,c	;volatile
+  1504                           
+  1505                           ;mcp3909.h: 141: PORTBbits.RB1 = 1;
+  1506  001926  8281               	bsf	3969,1,c	;volatile
+  1507                           
+  1508                           ;mcp3909.h: 144: PORTBbits.RB1 = 0;
+  1509  001928  9281               	bcf	3969,1,c	;volatile
+  1510                           
+  1511                           ;mcp3909.h: 145: PORTBbits.RB2 = 1;
+  1512  00192A  8481               	bsf	3969,2,c	;volatile
+  1513                           
+  1514                           ;mcp3909.h: 146: PORTBbits.RB1 = 1;
+  1515  00192C  8281               	bsf	3969,1,c	;volatile
+  1516                           
+  1517                           ;mcp3909.h: 149: PORTBbits.RB1 = 0;
+  1518  00192E  9281               	bcf	3969,1,c	;volatile
+  1519                           
+  1520                           ;mcp3909.h: 150: PORTBbits.RB2 = 0;
+  1521  001930  9481               	bcf	3969,2,c	;volatile
+  1522                           
+  1523                           ;mcp3909.h: 151: PORTBbits.RB1 = 1;
+  1524  001932  8281               	bsf	3969,1,c	;volatile
+  1525                           
+  1526                           ;mcp3909.h: 154: PORTBbits.RB1 = 0;
+  1527  001934  9281               	bcf	3969,1,c	;volatile
+  1528                           
+  1529                           ;mcp3909.h: 155: PORTBbits.RB2 = 0;
+  1530  001936  9481               	bcf	3969,2,c	;volatile
+  1531                           
+  1532                           ;mcp3909.h: 156: PORTBbits.RB1 = 1;
+  1533  001938  8281               	bsf	3969,1,c	;volatile
+  1534                           
+  1535                           ;mcp3909.h: 159: PORTBbits.RB1 = 0;
+  1536  00193A  9281               	bcf	3969,1,c	;volatile
+  1537                           
+  1538                           ;mcp3909.h: 160: PORTBbits.RB2 = 1;
+  1539  00193C  8481               	bsf	3969,2,c	;volatile
+  1540                           
+  1541                           ;mcp3909.h: 161: PORTBbits.RB1 = 1;
+  1542  00193E  8281               	bsf	3969,1,c	;volatile
+  1543                           
+  1544                           ;mcp3909.h: 164: PORTBbits.RB1 = 0;
+  1545  001940  9281               	bcf	3969,1,c	;volatile
+  1546                           
+  1547                           ;mcp3909.h: 165: PORTBbits.RB2 = 0;
+  1548  001942  9481               	bcf	3969,2,c	;volatile
+  1549                           
+  1550                           ;mcp3909.h: 166: PORTBbits.RB1 = 1;
+  1551  001944  8281               	bsf	3969,1,c	;volatile
+  1552                           
+  1553                           ;mcp3909.h: 169: PORTBbits.RB1 = 0;
+  1554  001946  9281               	bcf	3969,1,c	;volatile
+  1555                           
+  1556                           ;mcp3909.h: 170: PORTBbits.RB2 = 0;
+  1557  001948  9481               	bcf	3969,2,c	;volatile
+  1558                           
+  1559                           ;mcp3909.h: 171: PORTBbits.RB1 = 1;
+  1560  00194A  8281               	bsf	3969,1,c	;volatile
+  1561                           
+  1562                           ;mcp3909.h: 172: PORTBbits.RB1 = 0;
+  1563  00194C  9281               	bcf	3969,1,c	;volatile
+  1564                           
+  1565                           ;mcp3909.h: 174: PORTBbits.RB3 = 1;
+  1566  00194E  8681               	bsf	3969,3,c	;volatile
+  1567                           
+  1568                           ;mcp3909.h: 175: }else if(modo == 0xAC){
+  1569  001950  0012               	return	
+  1570  001952                     l57:
+  1571  001952  0EAC               	movlw	172
+  1572  001954  1801               	xorwf	mcpInitSPI@modo,w,c
+  1573  001956  A4D8               	btfss	status,2,c
+  1574  001958  0012               	return	
+  1575                           
+  1576                           ;mcp3909.h: 177: PORTBbits.RB0 = 1;
+  1577  00195A  8081               	bsf	3969,0,c	;volatile
+  1578                           
+  1579                           ;mcp3909.h: 179: PORTBbits.RB3=0;
+  1580  00195C  9681               	bcf	3969,3,c	;volatile
+  1581                           
+  1582                           ;mcp3909.h: 182: PORTBbits.RB1 = 0;
+  1583  00195E  9281               	bcf	3969,1,c	;volatile
+  1584                           
+  1585                           ;mcp3909.h: 183: PORTBbits.RB2 = 1;
+  1586  001960  8481               	bsf	3969,2,c	;volatile
+  1587                           
+  1588                           ;mcp3909.h: 184: PORTBbits.RB1 = 1;
+  1589  001962  8281               	bsf	3969,1,c	;volatile
+  1590                           
+  1591                           ;mcp3909.h: 187: PORTBbits.RB1 = 0;
+  1592  001964  9281               	bcf	3969,1,c	;volatile
+  1593                           
+  1594                           ;mcp3909.h: 188: PORTBbits.RB2 = 0;
+  1595  001966  9481               	bcf	3969,2,c	;volatile
+  1596                           
+  1597                           ;mcp3909.h: 189: PORTBbits.RB1 = 1;
+  1598  001968  8281               	bsf	3969,1,c	;volatile
+  1599                           
+  1600                           ;mcp3909.h: 192: PORTBbits.RB1 = 0;
+  1601  00196A  9281               	bcf	3969,1,c	;volatile
+  1602                           
+  1603                           ;mcp3909.h: 193: PORTBbits.RB2 = 1;
+  1604  00196C  8481               	bsf	3969,2,c	;volatile
+  1605                           
+  1606                           ;mcp3909.h: 194: PORTBbits.RB1 = 1;
+  1607  00196E  8281               	bsf	3969,1,c	;volatile
+  1608                           
+  1609                           ;mcp3909.h: 197: PORTBbits.RB1 = 0;
+  1610  001970  9281               	bcf	3969,1,c	;volatile
+  1611                           
+  1612                           ;mcp3909.h: 198: PORTBbits.RB2 = 0;
+  1613  001972  9481               	bcf	3969,2,c	;volatile
+  1614                           
+  1615                           ;mcp3909.h: 199: PORTBbits.RB1 = 1;
+  1616  001974  8281               	bsf	3969,1,c	;volatile
+  1617                           
+  1618                           ;mcp3909.h: 202: PORTBbits.RB1 = 0;
+  1619  001976  9281               	bcf	3969,1,c	;volatile
+  1620                           
+  1621                           ;mcp3909.h: 203: PORTBbits.RB2 = 1;
+  1622  001978  8481               	bsf	3969,2,c	;volatile
+  1623                           
+  1624                           ;mcp3909.h: 204: PORTBbits.RB1 = 1;
+  1625  00197A  8281               	bsf	3969,1,c	;volatile
+  1626                           
+  1627                           ;mcp3909.h: 207: PORTBbits.RB1 = 0;
+  1628  00197C  9281               	bcf	3969,1,c	;volatile
+  1629                           
+  1630                           ;mcp3909.h: 208: PORTBbits.RB2 = 1;
+  1631  00197E  8481               	bsf	3969,2,c	;volatile
+  1632                           
+  1633                           ;mcp3909.h: 209: PORTBbits.RB1 = 1;
+  1634  001980  8281               	bsf	3969,1,c	;volatile
+  1635                           
+  1636                           ;mcp3909.h: 212: PORTBbits.RB1 = 0;
+  1637  001982  9281               	bcf	3969,1,c	;volatile
+  1638                           
+  1639                           ;mcp3909.h: 213: PORTBbits.RB2 = 0;
+  1640  001984  9481               	bcf	3969,2,c	;volatile
+  1641                           
+  1642                           ;mcp3909.h: 214: PORTBbits.RB1 = 1;
+  1643  001986  8281               	bsf	3969,1,c	;volatile
+  1644                           
+  1645                           ;mcp3909.h: 217: PORTBbits.RB1 = 0;
+  1646  001988  9281               	bcf	3969,1,c	;volatile
+  1647                           
+  1648                           ;mcp3909.h: 218: PORTBbits.RB2 = 0;
+  1649  00198A  9481               	bcf	3969,2,c	;volatile
+  1650                           
+  1651                           ;mcp3909.h: 219: PORTBbits.RB1 = 1;
+  1652  00198C  8281               	bsf	3969,1,c	;volatile
+  1653                           
+  1654                           ;mcp3909.h: 220: PORTBbits.RB1 = 0;
+  1655  00198E  9281               	bcf	3969,1,c	;volatile
+  1656                           
+  1657                           ;mcp3909.h: 222: PORTBbits.RB3 = 1;
+  1658  001990  8681               	bsf	3969,3,c	;volatile
+  1659  001992  0012               	return	
+  1660  001994                     __end_of_mcpInitSPI:
+  1661                           	opt stack 0
+  1662                           tblptru	equ	0xFF8
+  1663                           tblptrh	equ	0xFF7
+  1664                           tblptrl	equ	0xFF6
+  1665                           tablat	equ	0xFF5
+  1666                           prodh	equ	0xFF4
+  1667                           prodl	equ	0xFF3
+  1668                           intcon2	equ	0xFF1
+  1669                           postinc0	equ	0xFEE
+  1670                           wreg	equ	0xFE8
+  1671                           postdec1	equ	0xFE5
+  1672                           fsr1h	equ	0xFE2
+  1673                           fsr1l	equ	0xFE1
+  1674                           postinc2	equ	0xFDE
+  1675                           postdec2	equ	0xFDD
+  1676                           fsr2h	equ	0xFDA
+  1677                           fsr2l	equ	0xFD9
+  1678                           status	equ	0xFD8
+  1679                           
+  1680 ;; *************** function _mcpGetGanho *****************
+  1681 ;; Defined at:
+  1682 ;;		line 102 in file "mcp3909.h"
+  1683 ;; Parameters:    Size  Location     Type
+  1684 ;;		None
+  1685 ;; Auto vars:     Size  Location     Type
+  1686 ;;		None
+  1687 ;; Return value:  Size  Location     Type
+  1688 ;;                  1    wreg      unsigned char 
+  1689 ;; Registers used:
+  1690 ;;		wreg, status,2
+  1691 ;; Tracked objects:
+  1692 ;;		On entry : 0/0
+  1693 ;;		On exit  : 0/0
+  1694 ;;		Unchanged: 0/0
+  1695 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1696 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1697 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1698 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1699 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1700 ;;Total ram usage:        0 bytes
+  1701 ;; Hardware stack levels used:    1
+  1702 ;; This function calls:
+  1703 ;;		Nothing
+  1704 ;; This function is called by:
+  1705 ;;		_setup
+  1706 ;; This function uses a non-reentrant model
+  1707 ;;
+  1708                           
+  1709                           	psect	text8
+  1710  001B22                     __ptext8:
+  1711                           	opt stack 0
+  1712  001B22                     _mcpGetGanho:
+  1713                           	opt stack 29
+  1714                           
+  1715                           ;mcp3909.h: 103: return mcp_ganho;
+  1716                           
+  1717                           ;incstack = 0
+  1718  001B22  5025               	movf	_mcp_ganho,w,c
+  1719  001B24  0012               	return	
+  1720  001B26                     __end_of_mcpGetGanho:
+  1721                           	opt stack 0
+  1722                           tblptru	equ	0xFF8
+  1723                           tblptrh	equ	0xFF7
+  1724                           tblptrl	equ	0xFF6
+  1725                           tablat	equ	0xFF5
+  1726                           prodh	equ	0xFF4
+  1727                           prodl	equ	0xFF3
+  1728                           intcon2	equ	0xFF1
+  1729                           postinc0	equ	0xFEE
+  1730                           wreg	equ	0xFE8
+  1731                           postdec1	equ	0xFE5
+  1732                           fsr1h	equ	0xFE2
+  1733                           fsr1l	equ	0xFE1
+  1734                           postinc2	equ	0xFDE
+  1735                           postdec2	equ	0xFDD
+  1736                           fsr2h	equ	0xFDA
+  1737                           fsr2l	equ	0xFD9
+  1738                           status	equ	0xFD8
+  1739                           
+  1740 ;; *************** function _inicializa_RS232 *****************
+  1741 ;; Defined at:
+  1742 ;;		line 25 in file "serial.h"
+  1743 ;; Parameters:    Size  Location     Type
+  1744 ;;  velocidade      4   14[COMRAM] long 
+  1745 ;;  modo            2   18[COMRAM] int 
+  1746 ;; Auto vars:     Size  Location     Type
+  1747 ;;  valor           2   20[COMRAM] unsigned int 
+  1748 ;; Return value:  Size  Location     Type
+  1749 ;;                  1    wreg      void 
+  1750 ;; Registers used:
+  1751 ;;		wreg, status,2, status,0, cstack
+  1752 ;; Tracked objects:
+  1753 ;;		On entry : 0/0
+  1754 ;;		On exit  : 0/0
+  1755 ;;		Unchanged: 0/0
+  1756 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1757 ;;      Params:         6       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1758 ;;      Locals:         6       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1759 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1760 ;;      Totals:        12       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1761 ;;Total ram usage:       12 bytes
+  1762 ;; Hardware stack levels used:    1
+  1763 ;; Hardware stack levels required when called:    1
+  1764 ;; This function calls:
+  1765 ;;		___aldiv
+  1766 ;; This function is called by:
+  1767 ;;		_setup
+  1768 ;; This function uses a non-reentrant model
+  1769 ;;
+  1770                           
+  1771                           	psect	text9
+  1772  0015EA                     __ptext9:
+  1773                           	opt stack 0
+  1774  0015EA                     _inicializa_RS232:
+  1775                           	opt stack 28
+  1776                           
+  1777                           ;serial.h: 27: RCSTA = 0X90;
+  1778                           
+  1779                           ;incstack = 0
+  1780  0015EA  0E90               	movlw	144
+  1781  0015EC  6EAB               	movwf	4011,c	;volatile
+  1782                           
+  1783                           ;serial.h: 28: unsigned int valor;
+  1784                           ;serial.h: 29: if(modo == 1){
+  1785  0015EE  0413               	decf	inicializa_RS232@modo,w,c
+  1786  0015F0  1014               	iorwf	inicializa_RS232@modo+1,w,c
+  1787  0015F2  A4D8               	btfss	status,2,c
+  1788  0015F4  D033               	goto	l82
+  1789                           
+  1790                           ;serial.h: 31: TXSTA = 0x24;
+  1791  0015F6  0E24               	movlw	36
+  1792  0015F8  6EAC               	movwf	4012,c	;volatile
+  1793                           
+  1794                           ;serial.h: 32: valor =(unsigned int)(((48000000/velocidade)-16)/16);
+  1795  0015FA  C00F  F005         	movff	inicializa_RS232@velocidade,___aldiv@divisor
+  1796  0015FE  C010  F006         	movff	inicializa_RS232@velocidade+1,___aldiv@divisor+1
+  1797  001602  C011  F007         	movff	inicializa_RS232@velocidade+2,___aldiv@divisor+2
+  1798  001606  C012  F008         	movff	inicializa_RS232@velocidade+3,___aldiv@divisor+3
+  1799  00160A  0E00               	movlw	0
+  1800  00160C  6E01               	movwf	___aldiv@dividend,c
+  1801  00160E  0E6C               	movlw	108
+  1802  001610  6E02               	movwf	___aldiv@dividend+1,c
+  1803  001612  0EDC               	movlw	220
+  1804  001614  6E03               	movwf	___aldiv@dividend+2,c
+  1805  001616  0E02               	movlw	2
+  1806  001618  6E04               	movwf	___aldiv@dividend+3,c
+  1807  00161A  EC69  F00B         	call	___aldiv	;wreg free
+  1808  00161E  0EF0               	movlw	240
+  1809  001620  2401               	addwf	?___aldiv,w,c
+  1810  001622  6E17               	movwf	_inicializa_RS232$943,c
+  1811  001624  0EFF               	movlw	255
+  1812  001626  2002               	addwfc	?___aldiv+1,w,c
+  1813  001628  6E18               	movwf	_inicializa_RS232$943+1,c
+  1814  00162A  0EFF               	movlw	255
+  1815  00162C  2003               	addwfc	?___aldiv+2,w,c
+  1816  00162E  6E19               	movwf	_inicializa_RS232$943+2,c
+  1817  001630  0EFF               	movlw	255
+  1818  001632  2004               	addwfc	?___aldiv+3,w,c
+  1819  001634  6E1A               	movwf	_inicializa_RS232$943+3,c
+  1820                           
+  1821                           ;serial.h: 32: valor =(unsigned int)(((48000000/velocidade)-16)/16);
+  1822  001636  C017  F001         	movff	_inicializa_RS232$943,___aldiv@dividend
+  1823  00163A  C018  F002         	movff	_inicializa_RS232$943+1,___aldiv@dividend+1
+  1824  00163E  C019  F003         	movff	_inicializa_RS232$943+2,___aldiv@dividend+2
+  1825  001642  C01A  F004         	movff	_inicializa_RS232$943+3,___aldiv@dividend+3
+  1826  001646  0E10               	movlw	16
+  1827  001648  6E05               	movwf	___aldiv@divisor,c
+  1828  00164A  0E00               	movlw	0
+  1829  00164C  6E06               	movwf	___aldiv@divisor+1,c
+  1830  00164E  0E00               	movlw	0
+  1831  001650  6E07               	movwf	___aldiv@divisor+2,c
+  1832  001652  0E00               	movlw	0
+  1833  001654  6E08               	movwf	___aldiv@divisor+3,c
+  1834  001656  EC69  F00B         	call	___aldiv	;wreg free
+  1835  00165A  D032               	goto	L1
+  1836  00165C                     l82:
+  1837                           
+  1838                           ;serial.h: 34: else{
+  1839                           ;serial.h: 35: TXSTA = 0x20;
+  1840  00165C  0E20               	movlw	32
+  1841  00165E  6EAC               	movwf	4012,c	;volatile
+  1842                           
+  1843                           ;serial.h: 36: valor =(unsigned int)(((48000000/velocidade)-64)/64);
+  1844  001660  C00F  F005         	movff	inicializa_RS232@velocidade,___aldiv@divisor
+  1845  001664  C010  F006         	movff	inicializa_RS232@velocidade+1,___aldiv@divisor+1
+  1846  001668  C011  F007         	movff	inicializa_RS232@velocidade+2,___aldiv@divisor+2
+  1847  00166C  C012  F008         	movff	inicializa_RS232@velocidade+3,___aldiv@divisor+3
+  1848  001670  0E00               	movlw	0
+  1849  001672  6E01               	movwf	___aldiv@dividend,c
+  1850  001674  0E6C               	movlw	108
+  1851  001676  6E02               	movwf	___aldiv@dividend+1,c
+  1852  001678  0EDC               	movlw	220
+  1853  00167A  6E03               	movwf	___aldiv@dividend+2,c
+  1854  00167C  0E02               	movlw	2
+  1855  00167E  6E04               	movwf	___aldiv@dividend+3,c
+  1856  001680  EC69  F00B         	call	___aldiv	;wreg free
+  1857  001684  0EC0               	movlw	192
+  1858  001686  2401               	addwf	?___aldiv,w,c
+  1859  001688  6E17               	movwf	_inicializa_RS232$943,c
+  1860  00168A  0EFF               	movlw	255
+  1861  00168C  2002               	addwfc	?___aldiv+1,w,c
+  1862  00168E  6E18               	movwf	_inicializa_RS232$943+1,c
+  1863  001690  0EFF               	movlw	255
+  1864  001692  2003               	addwfc	?___aldiv+2,w,c
+  1865  001694  6E19               	movwf	_inicializa_RS232$943+2,c
+  1866  001696  0EFF               	movlw	255
+  1867  001698  2004               	addwfc	?___aldiv+3,w,c
+  1868  00169A  6E1A               	movwf	_inicializa_RS232$943+3,c
+  1869                           
+  1870                           ;serial.h: 36: valor =(unsigned int)(((48000000/velocidade)-64)/64);
+  1871  00169C  C017  F001         	movff	_inicializa_RS232$943,___aldiv@dividend
+  1872  0016A0  C018  F002         	movff	_inicializa_RS232$943+1,___aldiv@dividend+1
+  1873  0016A4  C019  F003         	movff	_inicializa_RS232$943+2,___aldiv@dividend+2
+  1874  0016A8  C01A  F004         	movff	_inicializa_RS232$943+3,___aldiv@dividend+3
+  1875  0016AC  0E40               	movlw	64
+  1876  0016AE  6E05               	movwf	___aldiv@divisor,c
+  1877  0016B0  0E00               	movlw	0
+  1878  0016B2  6E06               	movwf	___aldiv@divisor+1,c
+  1879  0016B4  0E00               	movlw	0
+  1880  0016B6  6E07               	movwf	___aldiv@divisor+2,c
+  1881  0016B8  0E00               	movlw	0
+  1882  0016BA  6E08               	movwf	___aldiv@divisor+3,c
+  1883  0016BC  EC69  F00B         	call	___aldiv	;wreg free
+  1884  0016C0                     L1:
+  1885  0016C0  C001  F015         	movff	?___aldiv,inicializa_RS232@valor
+  1886  0016C4  C002  F016         	movff	?___aldiv+1,inicializa_RS232@valor+1
+  1887                           
+  1888                           ;serial.h: 37: }
+  1889                           ;serial.h: 38: SPBRG = valor;
+  1890  0016C8  C015  FFAF         	movff	inicializa_RS232@valor,4015	;volatile
+  1891                           
+  1892                           ;serial.h: 39: RCIE = 1;
+  1893  0016CC  8A9D               	bsf	3997,5,c	;volatile
+  1894                           
+  1895                           ;serial.h: 40: TXIE = 0;
+  1896  0016CE  989D               	bcf	3997,4,c	;volatile
+  1897  0016D0  0012               	return		;funcret
+  1898  0016D2                     __end_of_inicializa_RS232:
+  1899                           	opt stack 0
+  1900                           tblptru	equ	0xFF8
+  1901                           tblptrh	equ	0xFF7
+  1902                           tblptrl	equ	0xFF6
+  1903                           tablat	equ	0xFF5
+  1904                           prodh	equ	0xFF4
+  1905                           prodl	equ	0xFF3
+  1906                           intcon2	equ	0xFF1
+  1907                           postinc0	equ	0xFEE
+  1908                           wreg	equ	0xFE8
+  1909                           postdec1	equ	0xFE5
+  1910                           fsr1h	equ	0xFE2
+  1911                           fsr1l	equ	0xFE1
+  1912                           postinc2	equ	0xFDE
+  1913                           postdec2	equ	0xFDD
+  1914                           fsr2h	equ	0xFDA
+  1915                           fsr2l	equ	0xFD9
+  1916                           status	equ	0xFD8
+  1917                           
+  1918 ;; *************** function ___aldiv *****************
+  1919 ;; Defined at:
+  1920 ;;		line 8 in file "C:\Program Files (x86)\Microchip\xc8\v1.45\sources\common\aldiv.c"
+  1921 ;; Parameters:    Size  Location     Type
+  1922 ;;  dividend        4    0[COMRAM] long 
+  1923 ;;  divisor         4    4[COMRAM] long 
+  1924 ;; Auto vars:     Size  Location     Type
+  1925 ;;  quotient        4   10[COMRAM] long 
+  1926 ;;  sign            1    9[COMRAM] unsigned char 
+  1927 ;;  counter         1    8[COMRAM] unsigned char 
+  1928 ;; Return value:  Size  Location     Type
+  1929 ;;                  4    0[COMRAM] long 
+  1930 ;; Registers used:
+  1931 ;;		wreg, status,2, status,0
+  1932 ;; Tracked objects:
+  1933 ;;		On entry : 0/0
+  1934 ;;		On exit  : 0/0
+  1935 ;;		Unchanged: 0/0
+  1936 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1937 ;;      Params:         8       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1938 ;;      Locals:         6       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1939 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1940 ;;      Totals:        14       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1941 ;;Total ram usage:       14 bytes
+  1942 ;; Hardware stack levels used:    1
+  1943 ;; This function calls:
+  1944 ;;		Nothing
+  1945 ;; This function is called by:
+  1946 ;;		_inicializa_RS232
+  1947 ;; This function uses a non-reentrant model
+  1948 ;;
+  1949                           
+  1950                           	psect	text10
+  1951  0016D2                     __ptext10:
+  1952                           	opt stack 0
+  1953  0016D2                     ___aldiv:
+  1954                           	opt stack 28
+  1955                           
+  1956                           ;incstack = 0
+  1957  0016D2  0E00               	movlw	0
+  1958  0016D4  6E0A               	movwf	___aldiv@sign,c
+  1959  0016D6  AE08               	btfss	___aldiv@divisor+3,7,c
+  1960  0016D8  D00A               	goto	l188
+  1961  0016DA  1E08               	comf	___aldiv@divisor+3,f,c
+  1962  0016DC  1E07               	comf	___aldiv@divisor+2,f,c
+  1963  0016DE  1E06               	comf	___aldiv@divisor+1,f,c
+  1964  0016E0  6C05               	negf	___aldiv@divisor,c
+  1965  0016E2  0E00               	movlw	0
+  1966  0016E4  2206               	addwfc	___aldiv@divisor+1,f,c
+  1967  0016E6  2207               	addwfc	___aldiv@divisor+2,f,c
+  1968  0016E8  2208               	addwfc	___aldiv@divisor+3,f,c
+  1969  0016EA  0E01               	movlw	1
+  1970  0016EC  6E0A               	movwf	___aldiv@sign,c
+  1971  0016EE                     l188:
+  1972  0016EE  AE04               	btfss	___aldiv@dividend+3,7,c
+  1973  0016F0  D00A               	goto	l189
+  1974  0016F2  1E04               	comf	___aldiv@dividend+3,f,c
+  1975  0016F4  1E03               	comf	___aldiv@dividend+2,f,c
+  1976  0016F6  1E02               	comf	___aldiv@dividend+1,f,c
+  1977  0016F8  6C01               	negf	___aldiv@dividend,c
+  1978  0016FA  0E00               	movlw	0
+  1979  0016FC  2202               	addwfc	___aldiv@dividend+1,f,c
+  1980  0016FE  2203               	addwfc	___aldiv@dividend+2,f,c
+  1981  001700  2204               	addwfc	___aldiv@dividend+3,f,c
+  1982  001702  0E01               	movlw	1
+  1983  001704  1A0A               	xorwf	___aldiv@sign,f,c
+  1984  001706                     l189:
+  1985  001706  0E00               	movlw	0
+  1986  001708  6E0B               	movwf	___aldiv@quotient,c
+  1987  00170A  0E00               	movlw	0
+  1988  00170C  6E0C               	movwf	___aldiv@quotient+1,c
+  1989  00170E  0E00               	movlw	0
+  1990  001710  6E0D               	movwf	___aldiv@quotient+2,c
+  1991  001712  0E00               	movlw	0
+  1992  001714  6E0E               	movwf	___aldiv@quotient+3,c
+  1993  001716  5005               	movf	___aldiv@divisor,w,c
+  1994  001718  1006               	iorwf	___aldiv@divisor+1,w,c
+  1995  00171A  1007               	iorwf	___aldiv@divisor+2,w,c
+  1996  00171C  1008               	iorwf	___aldiv@divisor+3,w,c
+  1997  00171E  B4D8               	btfsc	status,2,c
+  1998  001720  D02A               	goto	l196
+  1999  001722  0E01               	movlw	1
+  2000  001724  6E09               	movwf	___aldiv@counter,c
+  2001  001726  D006               	goto	l191
+  2002  001728  90D8               	bcf	status,0,c
+  2003  00172A  3605               	rlcf	___aldiv@divisor,f,c
+  2004  00172C  3606               	rlcf	___aldiv@divisor+1,f,c
+  2005  00172E  3607               	rlcf	___aldiv@divisor+2,f,c
+  2006  001730  3608               	rlcf	___aldiv@divisor+3,f,c
+  2007  001732  2A09               	incf	___aldiv@counter,f,c
+  2008  001734                     l191:
+  2009  001734  AE08               	btfss	___aldiv@divisor+3,7,c
+  2010  001736  D7F8               	goto	l192
+  2011  001738                     u690:
+  2012  001738  90D8               	bcf	status,0,c
+  2013  00173A  360B               	rlcf	___aldiv@quotient,f,c
+  2014  00173C  360C               	rlcf	___aldiv@quotient+1,f,c
+  2015  00173E  360D               	rlcf	___aldiv@quotient+2,f,c
+  2016  001740  360E               	rlcf	___aldiv@quotient+3,f,c
+  2017  001742  5005               	movf	___aldiv@divisor,w,c
+  2018  001744  5C01               	subwf	___aldiv@dividend,w,c
+  2019  001746  5006               	movf	___aldiv@divisor+1,w,c
+  2020  001748  5802               	subwfb	___aldiv@dividend+1,w,c
+  2021  00174A  5007               	movf	___aldiv@divisor+2,w,c
+  2022  00174C  5803               	subwfb	___aldiv@dividend+2,w,c
+  2023  00174E  5008               	movf	___aldiv@divisor+3,w,c
+  2024  001750  5804               	subwfb	___aldiv@dividend+3,w,c
+  2025  001752  A0D8               	btfss	status,0,c
+  2026  001754  D009               	goto	l195
+  2027  001756  5005               	movf	___aldiv@divisor,w,c
+  2028  001758  5E01               	subwf	___aldiv@dividend,f,c
+  2029  00175A  5006               	movf	___aldiv@divisor+1,w,c
+  2030  00175C  5A02               	subwfb	___aldiv@dividend+1,f,c
+  2031  00175E  5007               	movf	___aldiv@divisor+2,w,c
+  2032  001760  5A03               	subwfb	___aldiv@dividend+2,f,c
+  2033  001762  5008               	movf	___aldiv@divisor+3,w,c
+  2034  001764  5A04               	subwfb	___aldiv@dividend+3,f,c
+  2035  001766  800B               	bsf	___aldiv@quotient,0,c
+  2036  001768                     l195:
+  2037  001768  90D8               	bcf	status,0,c
+  2038  00176A  3208               	rrcf	___aldiv@divisor+3,f,c
+  2039  00176C  3207               	rrcf	___aldiv@divisor+2,f,c
+  2040  00176E  3206               	rrcf	___aldiv@divisor+1,f,c
+  2041  001770  3205               	rrcf	___aldiv@divisor,f,c
+  2042  001772  2E09               	decfsz	___aldiv@counter,f,c
+  2043  001774  D7E1               	goto	u690
+  2044  001776                     l196:
+  2045  001776  500A               	movf	___aldiv@sign,w,c
+  2046  001778  B4D8               	btfsc	status,2,c
+  2047  00177A  D008               	goto	l197
+  2048  00177C  1E0E               	comf	___aldiv@quotient+3,f,c
+  2049  00177E  1E0D               	comf	___aldiv@quotient+2,f,c
+  2050  001780  1E0C               	comf	___aldiv@quotient+1,f,c
+  2051  001782  6C0B               	negf	___aldiv@quotient,c
+  2052  001784  0E00               	movlw	0
+  2053  001786  220C               	addwfc	___aldiv@quotient+1,f,c
+  2054  001788  220D               	addwfc	___aldiv@quotient+2,f,c
+  2055  00178A  220E               	addwfc	___aldiv@quotient+3,f,c
+  2056  00178C                     l197:
+  2057  00178C  C00B  F001         	movff	___aldiv@quotient,?___aldiv
+  2058  001790  C00C  F002         	movff	___aldiv@quotient+1,?___aldiv+1
+  2059  001794  C00D  F003         	movff	___aldiv@quotient+2,?___aldiv+2
+  2060  001798  C00E  F004         	movff	___aldiv@quotient+3,?___aldiv+3
+  2061  00179C  0012               	return	
+  2062  00179E                     __end_of___aldiv:
+  2063                           	opt stack 0
+  2064                           tblptru	equ	0xFF8
+  2065                           tblptrh	equ	0xFF7
+  2066                           tblptrl	equ	0xFF6
+  2067                           tablat	equ	0xFF5
+  2068                           prodh	equ	0xFF4
+  2069                           prodl	equ	0xFF3
+  2070                           intcon2	equ	0xFF1
+  2071                           postinc0	equ	0xFEE
+  2072                           wreg	equ	0xFE8
+  2073                           postdec1	equ	0xFE5
+  2074                           fsr1h	equ	0xFE2
+  2075                           fsr1l	equ	0xFE1
+  2076                           postinc2	equ	0xFDE
+  2077                           postdec2	equ	0xFDD
+  2078                           fsr2h	equ	0xFDA
+  2079                           fsr2l	equ	0xFD9
+  2080                           status	equ	0xFD8
+  2081                           
+  2082 ;; *************** function _mcpRead *****************
+  2083 ;; Defined at:
+  2084 ;;		line 439 in file "mcp3909.h"
+  2085 ;; Parameters:    Size  Location     Type
+  2086 ;;  array_ch0       2    1[COMRAM] PTR int 
+  2087 ;;		 -> valor_ch0(500), 
+  2088 ;;  array_ch1       2    3[COMRAM] PTR int 
+  2089 ;;		 -> valor_ch1(500), 
+  2090 ;;  qntAmostras     2    5[COMRAM] unsigned int 
+  2091 ;; Auto vars:     Size  Location     Type
+  2092 ;;  contAmostra     2    7[COMRAM] unsigned int 
+  2093 ;; Return value:  Size  Location     Type
+  2094 ;;                  1    wreg      void 
+  2095 ;; Registers used:
+  2096 ;;		wreg, fsr2l, fsr2h, status,2, status,0, cstack
+  2097 ;; Tracked objects:
+  2098 ;;		On entry : 0/0
+  2099 ;;		On exit  : 0/0
+  2100 ;;		Unchanged: 0/0
+  2101 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  2102 ;;      Params:         6       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2103 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2104 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2105 ;;      Totals:         8       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2106 ;;Total ram usage:        8 bytes
+  2107 ;; Hardware stack levels used:    1
+  2108 ;; Hardware stack levels required when called:    1
+  2109 ;; This function calls:
+  2110 ;;		_mcpRcv
+  2111 ;; This function is called by:
+  2112 ;;		_main
+  2113 ;; This function uses a non-reentrant model
+  2114 ;;
+  2115                           
+  2116                           	psect	text11
+  2117  001994                     __ptext11:
+  2118                           	opt stack 0
+  2119  001994                     _mcpRead:
+  2120                           	opt stack 29
+  2121                           
+  2122                           ;mcp3909.h: 441: unsigned int contAmostra;
+  2123                           ;mcp3909.h: 442: static bit f_sample;
+  2124                           ;mcp3909.h: 444: contAmostra=0;
+  2125                           
+  2126                           ;incstack = 0
+  2127  001994  0E00               	movlw	0
+  2128  001996  6E09               	movwf	mcpRead@contAmostra+1,c
+  2129  001998  0E00               	movlw	0
+  2130  00199A  6E08               	movwf	mcpRead@contAmostra,c
+  2131                           
+  2132                           ;mcp3909.h: 445: while(contAmostra<qntAmostras){
+  2133  00199C  D02F               	goto	l71
+  2134  00199E                     l69:
+  2135                           
+  2136                           ;mcp3909.h: 446: PORTBbits.RB3 = 0;
+  2137  00199E  9681               	bcf	3969,3,c	;volatile
+  2138                           
+  2139                           ;mcp3909.h: 448: if(PORTCbits.RC3){
+  2140  0019A0  A682               	btfss	3970,3,c	;volatile
+  2141  0019A2  D009               	goto	l70
+  2142                           
+  2143                           ;mcp3909.h: 449: f_sample=1;
+  2144  0019A4  8026               	bsf	mcpRead@f_sample/(0+8),mcpRead@f_sample& (0+7),c
+  2145                           
+  2146                           ;mcp3909.h: 450: mcp_ch0=0;
+  2147  0019A6  0E00               	movlw	0
+  2148  0019A8  6E22               	movwf	_mcp_ch0+1,c
+  2149  0019AA  0E00               	movlw	0
+  2150  0019AC  6E21               	movwf	_mcp_ch0,c
+  2151                           
+  2152                           ;mcp3909.h: 451: mcp_ch1=0;
+  2153  0019AE  0E00               	movlw	0
+  2154  0019B0  6E20               	movwf	_mcp_ch1+1,c
+  2155  0019B2  0E00               	movlw	0
+  2156  0019B4  6E1F               	movwf	_mcp_ch1,c
+  2157  0019B6                     l70:
+  2158                           
+  2159                           ;mcp3909.h: 452: }
+  2160                           ;mcp3909.h: 454: if(!PORTCbits.RC3 && f_sample){
+  2161  0019B6  A682               	btfss	3970,3,c	;volatile
+  2162  0019B8  A026               	btfss	mcpRead@f_sample/(0+8),mcpRead@f_sample& (0+7),c
+  2163  0019BA  D020               	goto	l71
+  2164                           
+  2165                           ;mcp3909.h: 456: mcpRcv();
+  2166  0019BC  EC19  F008         	call	_mcpRcv	;wreg free
+  2167                           
+  2168                           ;mcp3909.h: 457: PORTBbits.RB3 = 1;
+  2169  0019C0  8681               	bsf	3969,3,c	;volatile
+  2170                           
+  2171                           ;mcp3909.h: 459: array_ch0[contAmostra] = mcp_ch0;
+  2172  0019C2  90D8               	bcf	status,0,c
+  2173  0019C4  3408               	rlcf	mcpRead@contAmostra,w,c
+  2174  0019C6  6ED9               	movwf	fsr2l,c
+  2175  0019C8  3409               	rlcf	mcpRead@contAmostra+1,w,c
+  2176  0019CA  6EDA               	movwf	fsr2h,c
+  2177  0019CC  5002               	movf	mcpRead@array_ch0,w,c
+  2178  0019CE  26D9               	addwf	fsr2l,f,c
+  2179  0019D0  5003               	movf	mcpRead@array_ch0+1,w,c
+  2180  0019D2  22DA               	addwfc	fsr2h,f,c
+  2181  0019D4  C021  FFDE         	movff	_mcp_ch0,postinc2
+  2182  0019D8  C022  FFDD         	movff	_mcp_ch0+1,postdec2
+  2183                           
+  2184                           ;mcp3909.h: 460: array_ch1[contAmostra] = mcp_ch1;
+  2185  0019DC  90D8               	bcf	status,0,c
+  2186  0019DE  3408               	rlcf	mcpRead@contAmostra,w,c
+  2187  0019E0  6ED9               	movwf	fsr2l,c
+  2188  0019E2  3409               	rlcf	mcpRead@contAmostra+1,w,c
+  2189  0019E4  6EDA               	movwf	fsr2h,c
+  2190  0019E6  5004               	movf	mcpRead@array_ch1,w,c
+  2191  0019E8  26D9               	addwf	fsr2l,f,c
+  2192  0019EA  5005               	movf	mcpRead@array_ch1+1,w,c
+  2193  0019EC  22DA               	addwfc	fsr2h,f,c
+  2194  0019EE  C01F  FFDE         	movff	_mcp_ch1,postinc2
+  2195  0019F2  C020  FFDD         	movff	_mcp_ch1+1,postdec2
+  2196                           
+  2197                           ;mcp3909.h: 461: contAmostra++;
+  2198  0019F6  4A08               	infsnz	mcpRead@contAmostra,f,c
+  2199  0019F8  2A09               	incf	mcpRead@contAmostra+1,f,c
+  2200                           
+  2201                           ;mcp3909.h: 463: f_sample=0;
+  2202  0019FA  9026               	bcf	mcpRead@f_sample/(0+8),mcpRead@f_sample& (0+7),c
+  2203  0019FC                     l71:
+  2204  0019FC  5006               	movf	mcpRead@qntAmostras,w,c
+  2205  0019FE  5C08               	subwf	mcpRead@contAmostra,w,c
+  2206  001A00  5007               	movf	mcpRead@qntAmostras+1,w,c
+  2207  001A02  5809               	subwfb	mcpRead@contAmostra+1,w,c
+  2208  001A04  B0D8               	btfsc	status,0,c
+  2209  001A06  0012               	return	
+  2210  001A08  D7CA               	goto	l69
+  2211  001A0A                     __end_of_mcpRead:
+  2212                           	opt stack 0
+  2213                           tblptru	equ	0xFF8
+  2214                           tblptrh	equ	0xFF7
+  2215                           tblptrl	equ	0xFF6
+  2216                           tablat	equ	0xFF5
+  2217                           prodh	equ	0xFF4
+  2218                           prodl	equ	0xFF3
+  2219                           intcon2	equ	0xFF1
+  2220                           postinc0	equ	0xFEE
+  2221                           wreg	equ	0xFE8
+  2222                           postdec1	equ	0xFE5
+  2223                           fsr1h	equ	0xFE2
+  2224                           fsr1l	equ	0xFE1
+  2225                           postinc2	equ	0xFDE
+  2226                           postdec2	equ	0xFDD
+  2227                           fsr2h	equ	0xFDA
+  2228                           fsr2l	equ	0xFD9
+  2229                           status	equ	0xFD8
+  2230                           
+  2231 ;; *************** function _mcpRcv *****************
+  2232 ;; Defined at:
+  2233 ;;		line 234 in file "mcp3909.h"
+  2234 ;; Parameters:    Size  Location     Type
+  2235 ;;		None
+  2236 ;; Auto vars:     Size  Location     Type
+  2237 ;;		None
+  2238 ;; Return value:  Size  Location     Type
+  2239 ;;                  1    wreg      void 
+  2240 ;; Registers used:
+  2241 ;;		wreg, status,2, status,0
+  2242 ;; Tracked objects:
+  2243 ;;		On entry : 0/0
+  2244 ;;		On exit  : 0/0
+  2245 ;;		Unchanged: 0/0
+  2246 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  2247 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2248 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2249 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2250 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  2251 ;;Total ram usage:        1 bytes
+  2252 ;; Hardware stack levels used:    1
+  2253 ;; This function calls:
+  2254 ;;		Nothing
+  2255 ;; This function is called by:
+  2256 ;;		_mcpRead
+  2257 ;; This function uses a non-reentrant model
+  2258 ;;
+  2259                           
+  2260                           	psect	text12
+  2261  001032                     __ptext12:
+  2262                           	opt stack 0
+  2263  001032                     _mcpRcv:
+  2264                           	opt stack 29
+  2265                           
+  2266                           ;mcp3909.h: 237: PORTBbits.RB1 = 1;
+  2267                           
+  2268                           ;incstack = 0
+  2269  001032  8281               	bsf	3969,1,c	;volatile
+  2270                           
+  2271                           ;mcp3909.h: 238: PORTBbits.RB1 = 0;
+  2272  001034  9281               	bcf	3969,1,c	;volatile
+  2273                           
+  2274                           ;mcp3909.h: 239: mcp_ch1 = mcp_ch1 | PORTCbits.RC3;
+  2275  001036  A682               	btfss	3970,3,c	;volatile
+  2276  001038  D003               	goto	u160
+  2277  00103A  6A01               	clrf	??_mcpRcv& (0+255),c
+  2278  00103C  2A01               	incf	??_mcpRcv& (0+255),f,c
+  2279  00103E  D001               	goto	u168
+  2280  001040                     u160:
+  2281  001040  6A01               	clrf	??_mcpRcv& (0+255),c
+  2282  001042                     u168:
+  2283  001042  501F               	movf	_mcp_ch1,w,c
+  2284  001044  1001               	iorwf	??_mcpRcv,w,c
+  2285  001046  6E1F               	movwf	_mcp_ch1,c
+  2286  001048  5020               	movf	_mcp_ch1+1,w,c
+  2287  00104A  6E20               	movwf	_mcp_ch1+1,c
+  2288                           
+  2289                           ;mcp3909.h: 240: mcp_ch1 = mcp_ch1 << 1;
+  2290  00104C  90D8               	bcf	status,0,c
+  2291  00104E  341F               	rlcf	_mcp_ch1,w,c
+  2292  001050  6E1F               	movwf	_mcp_ch1,c
+  2293  001052  3420               	rlcf	_mcp_ch1+1,w,c
+  2294  001054  6E20               	movwf	_mcp_ch1+1,c
+  2295                           
+  2296                           ;mcp3909.h: 243: PORTBbits.RB1 = 1;
+  2297  001056  8281               	bsf	3969,1,c	;volatile
+  2298                           
+  2299                           ;mcp3909.h: 244: PORTBbits.RB1 = 0;
+  2300  001058  9281               	bcf	3969,1,c	;volatile
+  2301                           
+  2302                           ;mcp3909.h: 245: mcp_ch1 = mcp_ch1 | PORTCbits.RC3;
+  2303  00105A  A682               	btfss	3970,3,c	;volatile
+  2304  00105C  D003               	goto	u170
+  2305  00105E  6A01               	clrf	??_mcpRcv& (0+255),c
+  2306  001060  2A01               	incf	??_mcpRcv& (0+255),f,c
+  2307  001062  D001               	goto	u178
+  2308  001064                     u170:
+  2309  001064  6A01               	clrf	??_mcpRcv& (0+255),c
+  2310  001066                     u178:
+  2311  001066  501F               	movf	_mcp_ch1,w,c
+  2312  001068  1001               	iorwf	??_mcpRcv,w,c
+  2313  00106A  6E1F               	movwf	_mcp_ch1,c
+  2314  00106C  5020               	movf	_mcp_ch1+1,w,c
+  2315  00106E  6E20               	movwf	_mcp_ch1+1,c
+  2316                           
+  2317                           ;mcp3909.h: 246: mcp_ch1 = mcp_ch1 << 1;
+  2318  001070  90D8               	bcf	status,0,c
+  2319  001072  341F               	rlcf	_mcp_ch1,w,c
+  2320  001074  6E1F               	movwf	_mcp_ch1,c
+  2321  001076  3420               	rlcf	_mcp_ch1+1,w,c
+  2322  001078  6E20               	movwf	_mcp_ch1+1,c
+  2323                           
+  2324                           ;mcp3909.h: 249: PORTBbits.RB1 = 1;
+  2325  00107A  8281               	bsf	3969,1,c	;volatile
+  2326                           
+  2327                           ;mcp3909.h: 250: PORTBbits.RB1 = 0;
+  2328  00107C  9281               	bcf	3969,1,c	;volatile
+  2329                           
+  2330                           ;mcp3909.h: 251: mcp_ch1 = mcp_ch1 | PORTCbits.RC3;
+  2331  00107E  A682               	btfss	3970,3,c	;volatile
+  2332  001080  D003               	goto	u180
+  2333  001082  6A01               	clrf	??_mcpRcv& (0+255),c
+  2334  001084  2A01               	incf	??_mcpRcv& (0+255),f,c
+  2335  001086  D001               	goto	u188
+  2336  001088                     u180:
+  2337  001088  6A01               	clrf	??_mcpRcv& (0+255),c
+  2338  00108A                     u188:
+  2339  00108A  501F               	movf	_mcp_ch1,w,c
+  2340  00108C  1001               	iorwf	??_mcpRcv,w,c
+  2341  00108E  6E1F               	movwf	_mcp_ch1,c
+  2342  001090  5020               	movf	_mcp_ch1+1,w,c
+  2343  001092  6E20               	movwf	_mcp_ch1+1,c
+  2344                           
+  2345                           ;mcp3909.h: 252: mcp_ch1 = mcp_ch1 << 1;
+  2346  001094  90D8               	bcf	status,0,c
+  2347  001096  341F               	rlcf	_mcp_ch1,w,c
+  2348  001098  6E1F               	movwf	_mcp_ch1,c
+  2349  00109A  3420               	rlcf	_mcp_ch1+1,w,c
+  2350  00109C  6E20               	movwf	_mcp_ch1+1,c
+  2351                           
+  2352                           ;mcp3909.h: 255: PORTBbits.RB1 = 1;
+  2353  00109E  8281               	bsf	3969,1,c	;volatile
+  2354                           
+  2355                           ;mcp3909.h: 256: PORTBbits.RB1 = 0;
+  2356  0010A0  9281               	bcf	3969,1,c	;volatile
+  2357                           
+  2358                           ;mcp3909.h: 257: mcp_ch1 = mcp_ch1 | PORTCbits.RC3;
+  2359  0010A2  A682               	btfss	3970,3,c	;volatile
+  2360  0010A4  D003               	goto	u190
+  2361  0010A6  6A01               	clrf	??_mcpRcv& (0+255),c
+  2362  0010A8  2A01               	incf	??_mcpRcv& (0+255),f,c
+  2363  0010AA  D001               	goto	u198
+  2364  0010AC                     u190:
+  2365  0010AC  6A01               	clrf	??_mcpRcv& (0+255),c
+  2366  0010AE                     u198:
+  2367  0010AE  501F               	movf	_mcp_ch1,w,c
+  2368  0010B0  1001               	iorwf	??_mcpRcv,w,c
+  2369  0010B2  6E1F               	movwf	_mcp_ch1,c
+  2370  0010B4  5020               	movf	_mcp_ch1+1,w,c
+  2371  0010B6  6E20               	movwf	_mcp_ch1+1,c
+  2372                           
+  2373                           ;mcp3909.h: 258: mcp_ch1 = mcp_ch1 << 1;
+  2374  0010B8  90D8               	bcf	status,0,c
+  2375  0010BA  341F               	rlcf	_mcp_ch1,w,c
+  2376  0010BC  6E1F               	movwf	_mcp_ch1,c
+  2377  0010BE  3420               	rlcf	_mcp_ch1+1,w,c
+  2378  0010C0  6E20               	movwf	_mcp_ch1+1,c
+  2379                           
+  2380                           ;mcp3909.h: 261: PORTBbits.RB1 = 1;
+  2381  0010C2  8281               	bsf	3969,1,c	;volatile
+  2382                           
+  2383                           ;mcp3909.h: 262: PORTBbits.RB1 = 0;
+  2384  0010C4  9281               	bcf	3969,1,c	;volatile
+  2385                           
+  2386                           ;mcp3909.h: 263: mcp_ch1 = mcp_ch1 | PORTCbits.RC3;
+  2387  0010C6  A682               	btfss	3970,3,c	;volatile
+  2388  0010C8  D003               	goto	u200
+  2389  0010CA  6A01               	clrf	??_mcpRcv& (0+255),c
+  2390  0010CC  2A01               	incf	??_mcpRcv& (0+255),f,c
+  2391  0010CE  D001               	goto	u208
+  2392  0010D0                     u200:
+  2393  0010D0  6A01               	clrf	??_mcpRcv& (0+255),c
+  2394  0010D2                     u208:
+  2395  0010D2  501F               	movf	_mcp_ch1,w,c
+  2396  0010D4  1001               	iorwf	??_mcpRcv,w,c
+  2397  0010D6  6E1F               	movwf	_mcp_ch1,c
+  2398  0010D8  5020               	movf	_mcp_ch1+1,w,c
+  2399  0010DA  6E20               	movwf	_mcp_ch1+1,c
+  2400                           
+  2401                           ;mcp3909.h: 264: mcp_ch1 = mcp_ch1 << 1;
+  2402  0010DC  90D8               	bcf	status,0,c
+  2403  0010DE  341F               	rlcf	_mcp_ch1,w,c
+  2404  0010E0  6E1F               	movwf	_mcp_ch1,c
+  2405  0010E2  3420               	rlcf	_mcp_ch1+1,w,c
+  2406  0010E4  6E20               	movwf	_mcp_ch1+1,c
+  2407                           
+  2408                           ;mcp3909.h: 267: PORTBbits.RB1 = 1;
+  2409  0010E6  8281               	bsf	3969,1,c	;volatile
+  2410                           
+  2411                           ;mcp3909.h: 268: PORTBbits.RB1 = 0;
+  2412  0010E8  9281               	bcf	3969,1,c	;volatile
+  2413                           
+  2414                           ;mcp3909.h: 269: mcp_ch1 = mcp_ch1 | PORTCbits.RC3;
+  2415  0010EA  A682               	btfss	3970,3,c	;volatile
+  2416  0010EC  D003               	goto	u210
+  2417  0010EE  6A01               	clrf	??_mcpRcv& (0+255),c
+  2418  0010F0  2A01               	incf	??_mcpRcv& (0+255),f,c
+  2419  0010F2  D001               	goto	u218
+  2420  0010F4                     u210:
+  2421  0010F4  6A01               	clrf	??_mcpRcv& (0+255),c
+  2422  0010F6                     u218:
+  2423  0010F6  501F               	movf	_mcp_ch1,w,c
+  2424  0010F8  1001               	iorwf	??_mcpRcv,w,c
+  2425  0010FA  6E1F               	movwf	_mcp_ch1,c
+  2426  0010FC  5020               	movf	_mcp_ch1+1,w,c
+  2427  0010FE  6E20               	movwf	_mcp_ch1+1,c
+  2428                           
+  2429                           ;mcp3909.h: 270: mcp_ch1 = mcp_ch1 << 1;
+  2430  001100  90D8               	bcf	status,0,c
+  2431  001102  341F               	rlcf	_mcp_ch1,w,c
+  2432  001104  6E1F               	movwf	_mcp_ch1,c
+  2433  001106  3420               	rlcf	_mcp_ch1+1,w,c
+  2434  001108  6E20               	movwf	_mcp_ch1+1,c
+  2435                           
+  2436                           ;mcp3909.h: 273: PORTBbits.RB1 = 1;
+  2437  00110A  8281               	bsf	3969,1,c	;volatile
+  2438                           
+  2439                           ;mcp3909.h: 274: PORTBbits.RB1 = 0;
+  2440  00110C  9281               	bcf	3969,1,c	;volatile
+  2441                           
+  2442                           ;mcp3909.h: 275: mcp_ch1 = mcp_ch1 | PORTCbits.RC3;
+  2443  00110E  A682               	btfss	3970,3,c	;volatile
+  2444  001110  D003               	goto	u220
+  2445  001112  6A01               	clrf	??_mcpRcv& (0+255),c
+  2446  001114  2A01               	incf	??_mcpRcv& (0+255),f,c
+  2447  001116  D001               	goto	u228
+  2448  001118                     u220:
+  2449  001118  6A01               	clrf	??_mcpRcv& (0+255),c
+  2450  00111A                     u228:
+  2451  00111A  501F               	movf	_mcp_ch1,w,c
+  2452  00111C  1001               	iorwf	??_mcpRcv,w,c
+  2453  00111E  6E1F               	movwf	_mcp_ch1,c
+  2454  001120  5020               	movf	_mcp_ch1+1,w,c
+  2455  001122  6E20               	movwf	_mcp_ch1+1,c
+  2456                           
+  2457                           ;mcp3909.h: 276: mcp_ch1 = mcp_ch1 << 1;
+  2458  001124  90D8               	bcf	status,0,c
+  2459  001126  341F               	rlcf	_mcp_ch1,w,c
+  2460  001128  6E1F               	movwf	_mcp_ch1,c
+  2461  00112A  3420               	rlcf	_mcp_ch1+1,w,c
+  2462  00112C  6E20               	movwf	_mcp_ch1+1,c
+  2463                           
+  2464                           ;mcp3909.h: 279: PORTBbits.RB1 = 1;
+  2465  00112E  8281               	bsf	3969,1,c	;volatile
+  2466                           
+  2467                           ;mcp3909.h: 280: PORTBbits.RB1 = 0;
+  2468  001130  9281               	bcf	3969,1,c	;volatile
+  2469                           
+  2470                           ;mcp3909.h: 281: mcp_ch1 = mcp_ch1 | PORTCbits.RC3;
+  2471  001132  A682               	btfss	3970,3,c	;volatile
+  2472  001134  D003               	goto	u230
+  2473  001136  6A01               	clrf	??_mcpRcv& (0+255),c
+  2474  001138  2A01               	incf	??_mcpRcv& (0+255),f,c
+  2475  00113A  D001               	goto	u238
+  2476  00113C                     u230:
+  2477  00113C  6A01               	clrf	??_mcpRcv& (0+255),c
+  2478  00113E                     u238:
+  2479  00113E  501F               	movf	_mcp_ch1,w,c
+  2480  001140  1001               	iorwf	??_mcpRcv,w,c
+  2481  001142  6E1F               	movwf	_mcp_ch1,c
+  2482  001144  5020               	movf	_mcp_ch1+1,w,c
+  2483  001146  6E20               	movwf	_mcp_ch1+1,c
+  2484                           
+  2485                           ;mcp3909.h: 282: mcp_ch1 = mcp_ch1 << 1;
+  2486  001148  90D8               	bcf	status,0,c
+  2487  00114A  341F               	rlcf	_mcp_ch1,w,c
+  2488  00114C  6E1F               	movwf	_mcp_ch1,c
+  2489  00114E  3420               	rlcf	_mcp_ch1+1,w,c
+  2490  001150  6E20               	movwf	_mcp_ch1+1,c
+  2491                           
+  2492                           ;mcp3909.h: 285: PORTBbits.RB1 = 1;
+  2493  001152  8281               	bsf	3969,1,c	;volatile
+  2494                           
+  2495                           ;mcp3909.h: 286: PORTBbits.RB1 = 0;
+  2496  001154  9281               	bcf	3969,1,c	;volatile
+  2497                           
+  2498                           ;mcp3909.h: 287: mcp_ch1 = mcp_ch1 | PORTCbits.RC3;
+  2499  001156  A682               	btfss	3970,3,c	;volatile
+  2500  001158  D003               	goto	u240
+  2501  00115A  6A01               	clrf	??_mcpRcv& (0+255),c
+  2502  00115C  2A01               	incf	??_mcpRcv& (0+255),f,c
+  2503  00115E  D001               	goto	u248
+  2504  001160                     u240:
+  2505  001160  6A01               	clrf	??_mcpRcv& (0+255),c
+  2506  001162                     u248:
+  2507  001162  501F               	movf	_mcp_ch1,w,c
+  2508  001164  1001               	iorwf	??_mcpRcv,w,c
+  2509  001166  6E1F               	movwf	_mcp_ch1,c
+  2510  001168  5020               	movf	_mcp_ch1+1,w,c
+  2511  00116A  6E20               	movwf	_mcp_ch1+1,c
+  2512                           
+  2513                           ;mcp3909.h: 288: mcp_ch1 = mcp_ch1 << 1;
+  2514  00116C  90D8               	bcf	status,0,c
+  2515  00116E  341F               	rlcf	_mcp_ch1,w,c
+  2516  001170  6E1F               	movwf	_mcp_ch1,c
+  2517  001172  3420               	rlcf	_mcp_ch1+1,w,c
+  2518  001174  6E20               	movwf	_mcp_ch1+1,c
+  2519                           
+  2520                           ;mcp3909.h: 291: PORTBbits.RB1 = 1;
+  2521  001176  8281               	bsf	3969,1,c	;volatile
+  2522                           
+  2523                           ;mcp3909.h: 292: PORTBbits.RB1 = 0;
+  2524  001178  9281               	bcf	3969,1,c	;volatile
+  2525                           
+  2526                           ;mcp3909.h: 293: mcp_ch1 = mcp_ch1 | PORTCbits.RC3;
+  2527  00117A  A682               	btfss	3970,3,c	;volatile
+  2528  00117C  D003               	goto	u250
+  2529  00117E  6A01               	clrf	??_mcpRcv& (0+255),c
+  2530  001180  2A01               	incf	??_mcpRcv& (0+255),f,c
+  2531  001182  D001               	goto	u258
+  2532  001184                     u250:
+  2533  001184  6A01               	clrf	??_mcpRcv& (0+255),c
+  2534  001186                     u258:
+  2535  001186  501F               	movf	_mcp_ch1,w,c
+  2536  001188  1001               	iorwf	??_mcpRcv,w,c
+  2537  00118A  6E1F               	movwf	_mcp_ch1,c
+  2538  00118C  5020               	movf	_mcp_ch1+1,w,c
+  2539  00118E  6E20               	movwf	_mcp_ch1+1,c
+  2540                           
+  2541                           ;mcp3909.h: 294: mcp_ch1 = mcp_ch1 << 1;
+  2542  001190  90D8               	bcf	status,0,c
+  2543  001192  341F               	rlcf	_mcp_ch1,w,c
+  2544  001194  6E1F               	movwf	_mcp_ch1,c
+  2545  001196  3420               	rlcf	_mcp_ch1+1,w,c
+  2546  001198  6E20               	movwf	_mcp_ch1+1,c
+  2547                           
+  2548                           ;mcp3909.h: 297: PORTBbits.RB1 = 1;
+  2549  00119A  8281               	bsf	3969,1,c	;volatile
+  2550                           
+  2551                           ;mcp3909.h: 298: PORTBbits.RB1 = 0;
+  2552  00119C  9281               	bcf	3969,1,c	;volatile
+  2553                           
+  2554                           ;mcp3909.h: 299: mcp_ch1 = mcp_ch1 | PORTCbits.RC3;
+  2555  00119E  A682               	btfss	3970,3,c	;volatile
+  2556  0011A0  D003               	goto	u260
+  2557  0011A2  6A01               	clrf	??_mcpRcv& (0+255),c
+  2558  0011A4  2A01               	incf	??_mcpRcv& (0+255),f,c
+  2559  0011A6  D001               	goto	u268
+  2560  0011A8                     u260:
+  2561  0011A8  6A01               	clrf	??_mcpRcv& (0+255),c
+  2562  0011AA                     u268:
+  2563  0011AA  501F               	movf	_mcp_ch1,w,c
+  2564  0011AC  1001               	iorwf	??_mcpRcv,w,c
+  2565  0011AE  6E1F               	movwf	_mcp_ch1,c
+  2566  0011B0  5020               	movf	_mcp_ch1+1,w,c
+  2567  0011B2  6E20               	movwf	_mcp_ch1+1,c
+  2568                           
+  2569                           ;mcp3909.h: 300: mcp_ch1 = mcp_ch1 << 1;
+  2570  0011B4  90D8               	bcf	status,0,c
+  2571  0011B6  341F               	rlcf	_mcp_ch1,w,c
+  2572  0011B8  6E1F               	movwf	_mcp_ch1,c
+  2573  0011BA  3420               	rlcf	_mcp_ch1+1,w,c
+  2574  0011BC  6E20               	movwf	_mcp_ch1+1,c
+  2575                           
+  2576                           ;mcp3909.h: 303: PORTBbits.RB1 = 1;
+  2577  0011BE  8281               	bsf	3969,1,c	;volatile
+  2578                           
+  2579                           ;mcp3909.h: 304: PORTBbits.RB1 = 0;
+  2580  0011C0  9281               	bcf	3969,1,c	;volatile
+  2581                           
+  2582                           ;mcp3909.h: 305: mcp_ch1 = mcp_ch1 | PORTCbits.RC3;
+  2583  0011C2  A682               	btfss	3970,3,c	;volatile
+  2584  0011C4  D003               	goto	u270
+  2585  0011C6  6A01               	clrf	??_mcpRcv& (0+255),c
+  2586  0011C8  2A01               	incf	??_mcpRcv& (0+255),f,c
+  2587  0011CA  D001               	goto	u278
+  2588  0011CC                     u270:
+  2589  0011CC  6A01               	clrf	??_mcpRcv& (0+255),c
+  2590  0011CE                     u278:
+  2591  0011CE  501F               	movf	_mcp_ch1,w,c
+  2592  0011D0  1001               	iorwf	??_mcpRcv,w,c
+  2593  0011D2  6E1F               	movwf	_mcp_ch1,c
+  2594  0011D4  5020               	movf	_mcp_ch1+1,w,c
+  2595  0011D6  6E20               	movwf	_mcp_ch1+1,c
+  2596                           
+  2597                           ;mcp3909.h: 306: mcp_ch1 = mcp_ch1 << 1;
+  2598  0011D8  90D8               	bcf	status,0,c
+  2599  0011DA  341F               	rlcf	_mcp_ch1,w,c
+  2600  0011DC  6E1F               	movwf	_mcp_ch1,c
+  2601  0011DE  3420               	rlcf	_mcp_ch1+1,w,c
+  2602  0011E0  6E20               	movwf	_mcp_ch1+1,c
+  2603                           
+  2604                           ;mcp3909.h: 309: PORTBbits.RB1 = 1;
+  2605  0011E2  8281               	bsf	3969,1,c	;volatile
+  2606                           
+  2607                           ;mcp3909.h: 310: PORTBbits.RB1 = 0;
+  2608  0011E4  9281               	bcf	3969,1,c	;volatile
+  2609                           
+  2610                           ;mcp3909.h: 311: mcp_ch1 = mcp_ch1 | PORTCbits.RC3;
+  2611  0011E6  A682               	btfss	3970,3,c	;volatile
+  2612  0011E8  D003               	goto	u280
+  2613  0011EA  6A01               	clrf	??_mcpRcv& (0+255),c
+  2614  0011EC  2A01               	incf	??_mcpRcv& (0+255),f,c
+  2615  0011EE  D001               	goto	u288
+  2616  0011F0                     u280:
+  2617  0011F0  6A01               	clrf	??_mcpRcv& (0+255),c
+  2618  0011F2                     u288:
+  2619  0011F2  501F               	movf	_mcp_ch1,w,c
+  2620  0011F4  1001               	iorwf	??_mcpRcv,w,c
+  2621  0011F6  6E1F               	movwf	_mcp_ch1,c
+  2622  0011F8  5020               	movf	_mcp_ch1+1,w,c
+  2623  0011FA  6E20               	movwf	_mcp_ch1+1,c
+  2624                           
+  2625                           ;mcp3909.h: 312: mcp_ch1 = mcp_ch1 << 1;
+  2626  0011FC  90D8               	bcf	status,0,c
+  2627  0011FE  341F               	rlcf	_mcp_ch1,w,c
+  2628  001200  6E1F               	movwf	_mcp_ch1,c
+  2629  001202  3420               	rlcf	_mcp_ch1+1,w,c
+  2630  001204  6E20               	movwf	_mcp_ch1+1,c
+  2631                           
+  2632                           ;mcp3909.h: 315: PORTBbits.RB1 = 1;
+  2633  001206  8281               	bsf	3969,1,c	;volatile
+  2634                           
+  2635                           ;mcp3909.h: 316: PORTBbits.RB1 = 0;
+  2636  001208  9281               	bcf	3969,1,c	;volatile
+  2637                           
+  2638                           ;mcp3909.h: 317: mcp_ch1 = mcp_ch1 | PORTCbits.RC3;
+  2639  00120A  A682               	btfss	3970,3,c	;volatile
+  2640  00120C  D003               	goto	u290
+  2641  00120E  6A01               	clrf	??_mcpRcv& (0+255),c
+  2642  001210  2A01               	incf	??_mcpRcv& (0+255),f,c
+  2643  001212  D001               	goto	u298
+  2644  001214                     u290:
+  2645  001214  6A01               	clrf	??_mcpRcv& (0+255),c
+  2646  001216                     u298:
+  2647  001216  501F               	movf	_mcp_ch1,w,c
+  2648  001218  1001               	iorwf	??_mcpRcv,w,c
+  2649  00121A  6E1F               	movwf	_mcp_ch1,c
+  2650  00121C  5020               	movf	_mcp_ch1+1,w,c
+  2651  00121E  6E20               	movwf	_mcp_ch1+1,c
+  2652                           
+  2653                           ;mcp3909.h: 318: mcp_ch1 = mcp_ch1 << 1;
+  2654  001220  90D8               	bcf	status,0,c
+  2655  001222  341F               	rlcf	_mcp_ch1,w,c
+  2656  001224  6E1F               	movwf	_mcp_ch1,c
+  2657  001226  3420               	rlcf	_mcp_ch1+1,w,c
+  2658  001228  6E20               	movwf	_mcp_ch1+1,c
+  2659                           
+  2660                           ;mcp3909.h: 321: PORTBbits.RB1 = 1;
+  2661  00122A  8281               	bsf	3969,1,c	;volatile
+  2662                           
+  2663                           ;mcp3909.h: 322: PORTBbits.RB1 = 0;
+  2664  00122C  9281               	bcf	3969,1,c	;volatile
+  2665                           
+  2666                           ;mcp3909.h: 323: mcp_ch1 = mcp_ch1 | PORTCbits.RC3;
+  2667  00122E  A682               	btfss	3970,3,c	;volatile
+  2668  001230  D003               	goto	u300
+  2669  001232  6A01               	clrf	??_mcpRcv& (0+255),c
+  2670  001234  2A01               	incf	??_mcpRcv& (0+255),f,c
+  2671  001236  D001               	goto	u308
+  2672  001238                     u300:
+  2673  001238  6A01               	clrf	??_mcpRcv& (0+255),c
+  2674  00123A                     u308:
+  2675  00123A  501F               	movf	_mcp_ch1,w,c
+  2676  00123C  1001               	iorwf	??_mcpRcv,w,c
+  2677  00123E  6E1F               	movwf	_mcp_ch1,c
+  2678  001240  5020               	movf	_mcp_ch1+1,w,c
+  2679  001242  6E20               	movwf	_mcp_ch1+1,c
+  2680                           
+  2681                           ;mcp3909.h: 324: mcp_ch1 = mcp_ch1 << 1;
+  2682  001244  90D8               	bcf	status,0,c
+  2683  001246  341F               	rlcf	_mcp_ch1,w,c
+  2684  001248  6E1F               	movwf	_mcp_ch1,c
+  2685  00124A  3420               	rlcf	_mcp_ch1+1,w,c
+  2686  00124C  6E20               	movwf	_mcp_ch1+1,c
+  2687                           
+  2688                           ;mcp3909.h: 327: PORTBbits.RB1 = 1;
+  2689  00124E  8281               	bsf	3969,1,c	;volatile
+  2690                           
+  2691                           ;mcp3909.h: 328: PORTBbits.RB1 = 0;
+  2692  001250  9281               	bcf	3969,1,c	;volatile
+  2693                           
+  2694                           ;mcp3909.h: 329: mcp_ch1 = mcp_ch1 | PORTCbits.RC3;
+  2695  001252  A682               	btfss	3970,3,c	;volatile
+  2696  001254  D003               	goto	u310
+  2697  001256  6A01               	clrf	??_mcpRcv& (0+255),c
+  2698  001258  2A01               	incf	??_mcpRcv& (0+255),f,c
+  2699  00125A  D001               	goto	u318
+  2700  00125C                     u310:
+  2701  00125C  6A01               	clrf	??_mcpRcv& (0+255),c
+  2702  00125E                     u318:
+  2703  00125E  501F               	movf	_mcp_ch1,w,c
+  2704  001260  1001               	iorwf	??_mcpRcv,w,c
+  2705  001262  6E1F               	movwf	_mcp_ch1,c
+  2706  001264  5020               	movf	_mcp_ch1+1,w,c
+  2707  001266  6E20               	movwf	_mcp_ch1+1,c
+  2708                           
+  2709                           ;mcp3909.h: 332: PORTBbits.RB1 = 1;
+  2710  001268  8281               	bsf	3969,1,c	;volatile
+  2711                           
+  2712                           ;mcp3909.h: 333: PORTBbits.RB1 = 0;
+  2713  00126A  9281               	bcf	3969,1,c	;volatile
+  2714                           
+  2715                           ;mcp3909.h: 334: mcp_ch0 = mcp_ch0 | PORTCbits.RC3;
+  2716  00126C  A682               	btfss	3970,3,c	;volatile
+  2717  00126E  D003               	goto	u320
+  2718  001270  6A01               	clrf	??_mcpRcv& (0+255),c
+  2719  001272  2A01               	incf	??_mcpRcv& (0+255),f,c
+  2720  001274  D001               	goto	u328
+  2721  001276                     u320:
+  2722  001276  6A01               	clrf	??_mcpRcv& (0+255),c
+  2723  001278                     u328:
+  2724  001278  5021               	movf	_mcp_ch0,w,c
+  2725  00127A  1001               	iorwf	??_mcpRcv,w,c
+  2726  00127C  6E21               	movwf	_mcp_ch0,c
+  2727  00127E  5022               	movf	_mcp_ch0+1,w,c
+  2728  001280  6E22               	movwf	_mcp_ch0+1,c
+  2729                           
+  2730                           ;mcp3909.h: 335: mcp_ch0 = mcp_ch0 << 1;
+  2731  001282  90D8               	bcf	status,0,c
+  2732  001284  3421               	rlcf	_mcp_ch0,w,c
+  2733  001286  6E21               	movwf	_mcp_ch0,c
+  2734  001288  3422               	rlcf	_mcp_ch0+1,w,c
+  2735  00128A  6E22               	movwf	_mcp_ch0+1,c
+  2736                           
+  2737                           ;mcp3909.h: 338: PORTBbits.RB1 = 1;
+  2738  00128C  8281               	bsf	3969,1,c	;volatile
+  2739                           
+  2740                           ;mcp3909.h: 339: PORTBbits.RB1 = 0;
+  2741  00128E  9281               	bcf	3969,1,c	;volatile
+  2742                           
+  2743                           ;mcp3909.h: 340: mcp_ch0 = mcp_ch0 | PORTCbits.RC3;
+  2744  001290  A682               	btfss	3970,3,c	;volatile
+  2745  001292  D003               	goto	u330
+  2746  001294  6A01               	clrf	??_mcpRcv& (0+255),c
+  2747  001296  2A01               	incf	??_mcpRcv& (0+255),f,c
+  2748  001298  D001               	goto	u338
+  2749  00129A                     u330:
+  2750  00129A  6A01               	clrf	??_mcpRcv& (0+255),c
+  2751  00129C                     u338:
+  2752  00129C  5021               	movf	_mcp_ch0,w,c
+  2753  00129E  1001               	iorwf	??_mcpRcv,w,c
+  2754  0012A0  6E21               	movwf	_mcp_ch0,c
+  2755  0012A2  5022               	movf	_mcp_ch0+1,w,c
+  2756  0012A4  6E22               	movwf	_mcp_ch0+1,c
+  2757                           
+  2758                           ;mcp3909.h: 341: mcp_ch0 = mcp_ch0 << 1;
+  2759  0012A6  90D8               	bcf	status,0,c
+  2760  0012A8  3421               	rlcf	_mcp_ch0,w,c
+  2761  0012AA  6E21               	movwf	_mcp_ch0,c
+  2762  0012AC  3422               	rlcf	_mcp_ch0+1,w,c
+  2763  0012AE  6E22               	movwf	_mcp_ch0+1,c
+  2764                           
+  2765                           ;mcp3909.h: 344: PORTBbits.RB1 = 1;
+  2766  0012B0  8281               	bsf	3969,1,c	;volatile
+  2767                           
+  2768                           ;mcp3909.h: 345: PORTBbits.RB1 = 0;
+  2769  0012B2  9281               	bcf	3969,1,c	;volatile
+  2770                           
+  2771                           ;mcp3909.h: 346: mcp_ch0 = mcp_ch0 | PORTCbits.RC3;
+  2772  0012B4  A682               	btfss	3970,3,c	;volatile
+  2773  0012B6  D003               	goto	u340
+  2774  0012B8  6A01               	clrf	??_mcpRcv& (0+255),c
+  2775  0012BA  2A01               	incf	??_mcpRcv& (0+255),f,c
+  2776  0012BC  D001               	goto	u348
+  2777  0012BE                     u340:
+  2778  0012BE  6A01               	clrf	??_mcpRcv& (0+255),c
+  2779  0012C0                     u348:
+  2780  0012C0  5021               	movf	_mcp_ch0,w,c
+  2781  0012C2  1001               	iorwf	??_mcpRcv,w,c
+  2782  0012C4  6E21               	movwf	_mcp_ch0,c
+  2783  0012C6  5022               	movf	_mcp_ch0+1,w,c
+  2784  0012C8  6E22               	movwf	_mcp_ch0+1,c
+  2785                           
+  2786                           ;mcp3909.h: 347: mcp_ch0 = mcp_ch0 << 1;
+  2787  0012CA  90D8               	bcf	status,0,c
+  2788  0012CC  3421               	rlcf	_mcp_ch0,w,c
+  2789  0012CE  6E21               	movwf	_mcp_ch0,c
+  2790  0012D0  3422               	rlcf	_mcp_ch0+1,w,c
+  2791  0012D2  6E22               	movwf	_mcp_ch0+1,c
+  2792                           
+  2793                           ;mcp3909.h: 350: PORTBbits.RB1 = 1;
+  2794  0012D4  8281               	bsf	3969,1,c	;volatile
+  2795                           
+  2796                           ;mcp3909.h: 351: PORTBbits.RB1 = 0;
+  2797  0012D6  9281               	bcf	3969,1,c	;volatile
+  2798                           
+  2799                           ;mcp3909.h: 352: mcp_ch0 = mcp_ch0 | PORTCbits.RC3;
+  2800  0012D8  A682               	btfss	3970,3,c	;volatile
+  2801  0012DA  D003               	goto	u350
+  2802  0012DC  6A01               	clrf	??_mcpRcv& (0+255),c
+  2803  0012DE  2A01               	incf	??_mcpRcv& (0+255),f,c
+  2804  0012E0  D001               	goto	u358
+  2805  0012E2                     u350:
+  2806  0012E2  6A01               	clrf	??_mcpRcv& (0+255),c
+  2807  0012E4                     u358:
+  2808  0012E4  5021               	movf	_mcp_ch0,w,c
+  2809  0012E6  1001               	iorwf	??_mcpRcv,w,c
+  2810  0012E8  6E21               	movwf	_mcp_ch0,c
+  2811  0012EA  5022               	movf	_mcp_ch0+1,w,c
+  2812  0012EC  6E22               	movwf	_mcp_ch0+1,c
+  2813                           
+  2814                           ;mcp3909.h: 353: mcp_ch0 = mcp_ch0 << 1;
+  2815  0012EE  90D8               	bcf	status,0,c
+  2816  0012F0  3421               	rlcf	_mcp_ch0,w,c
+  2817  0012F2  6E21               	movwf	_mcp_ch0,c
+  2818  0012F4  3422               	rlcf	_mcp_ch0+1,w,c
+  2819  0012F6  6E22               	movwf	_mcp_ch0+1,c
+  2820                           
+  2821                           ;mcp3909.h: 356: PORTBbits.RB1 = 1;
+  2822  0012F8  8281               	bsf	3969,1,c	;volatile
+  2823                           
+  2824                           ;mcp3909.h: 357: PORTBbits.RB1 = 0;
+  2825  0012FA  9281               	bcf	3969,1,c	;volatile
+  2826                           
+  2827                           ;mcp3909.h: 358: mcp_ch0 = mcp_ch0 | PORTCbits.RC3;
+  2828  0012FC  A682               	btfss	3970,3,c	;volatile
+  2829  0012FE  D003               	goto	u360
+  2830  001300  6A01               	clrf	??_mcpRcv& (0+255),c
+  2831  001302  2A01               	incf	??_mcpRcv& (0+255),f,c
+  2832  001304  D001               	goto	u368
+  2833  001306                     u360:
+  2834  001306  6A01               	clrf	??_mcpRcv& (0+255),c
+  2835  001308                     u368:
+  2836  001308  5021               	movf	_mcp_ch0,w,c
+  2837  00130A  1001               	iorwf	??_mcpRcv,w,c
+  2838  00130C  6E21               	movwf	_mcp_ch0,c
+  2839  00130E  5022               	movf	_mcp_ch0+1,w,c
+  2840  001310  6E22               	movwf	_mcp_ch0+1,c
+  2841                           
+  2842                           ;mcp3909.h: 359: mcp_ch0 = mcp_ch0 << 1;
+  2843  001312  90D8               	bcf	status,0,c
+  2844  001314  3421               	rlcf	_mcp_ch0,w,c
+  2845  001316  6E21               	movwf	_mcp_ch0,c
+  2846  001318  3422               	rlcf	_mcp_ch0+1,w,c
+  2847  00131A  6E22               	movwf	_mcp_ch0+1,c
+  2848                           
+  2849                           ;mcp3909.h: 362: PORTBbits.RB1 = 1;
+  2850  00131C  8281               	bsf	3969,1,c	;volatile
+  2851                           
+  2852                           ;mcp3909.h: 363: PORTBbits.RB1 = 0;
+  2853  00131E  9281               	bcf	3969,1,c	;volatile
+  2854                           
+  2855                           ;mcp3909.h: 364: mcp_ch0 = mcp_ch0 | PORTCbits.RC3;
+  2856  001320  A682               	btfss	3970,3,c	;volatile
+  2857  001322  D003               	goto	u370
+  2858  001324  6A01               	clrf	??_mcpRcv& (0+255),c
+  2859  001326  2A01               	incf	??_mcpRcv& (0+255),f,c
+  2860  001328  D001               	goto	u378
+  2861  00132A                     u370:
+  2862  00132A  6A01               	clrf	??_mcpRcv& (0+255),c
+  2863  00132C                     u378:
+  2864  00132C  5021               	movf	_mcp_ch0,w,c
+  2865  00132E  1001               	iorwf	??_mcpRcv,w,c
+  2866  001330  6E21               	movwf	_mcp_ch0,c
+  2867  001332  5022               	movf	_mcp_ch0+1,w,c
+  2868  001334  6E22               	movwf	_mcp_ch0+1,c
+  2869                           
+  2870                           ;mcp3909.h: 365: mcp_ch0 = mcp_ch0 << 1;
+  2871  001336  90D8               	bcf	status,0,c
+  2872  001338  3421               	rlcf	_mcp_ch0,w,c
+  2873  00133A  6E21               	movwf	_mcp_ch0,c
+  2874  00133C  3422               	rlcf	_mcp_ch0+1,w,c
+  2875  00133E  6E22               	movwf	_mcp_ch0+1,c
+  2876                           
+  2877                           ;mcp3909.h: 368: PORTBbits.RB1 = 1;
+  2878  001340  8281               	bsf	3969,1,c	;volatile
+  2879                           
+  2880                           ;mcp3909.h: 369: PORTBbits.RB1 = 0;
+  2881  001342  9281               	bcf	3969,1,c	;volatile
+  2882                           
+  2883                           ;mcp3909.h: 370: mcp_ch0 = mcp_ch0 | PORTCbits.RC3;
+  2884  001344  A682               	btfss	3970,3,c	;volatile
+  2885  001346  D003               	goto	u380
+  2886  001348  6A01               	clrf	??_mcpRcv& (0+255),c
+  2887  00134A  2A01               	incf	??_mcpRcv& (0+255),f,c
+  2888  00134C  D001               	goto	u388
+  2889  00134E                     u380:
+  2890  00134E  6A01               	clrf	??_mcpRcv& (0+255),c
+  2891  001350                     u388:
+  2892  001350  5021               	movf	_mcp_ch0,w,c
+  2893  001352  1001               	iorwf	??_mcpRcv,w,c
+  2894  001354  6E21               	movwf	_mcp_ch0,c
+  2895  001356  5022               	movf	_mcp_ch0+1,w,c
+  2896  001358  6E22               	movwf	_mcp_ch0+1,c
+  2897                           
+  2898                           ;mcp3909.h: 371: mcp_ch0 = mcp_ch0 << 1;
+  2899  00135A  90D8               	bcf	status,0,c
+  2900  00135C  3421               	rlcf	_mcp_ch0,w,c
+  2901  00135E  6E21               	movwf	_mcp_ch0,c
+  2902  001360  3422               	rlcf	_mcp_ch0+1,w,c
+  2903  001362  6E22               	movwf	_mcp_ch0+1,c
+  2904                           
+  2905                           ;mcp3909.h: 374: PORTBbits.RB1 = 1;
+  2906  001364  8281               	bsf	3969,1,c	;volatile
+  2907                           
+  2908                           ;mcp3909.h: 375: PORTBbits.RB1 = 0;
+  2909  001366  9281               	bcf	3969,1,c	;volatile
+  2910                           
+  2911                           ;mcp3909.h: 376: mcp_ch0 = mcp_ch0 | PORTCbits.RC3;
+  2912  001368  A682               	btfss	3970,3,c	;volatile
+  2913  00136A  D003               	goto	u390
+  2914  00136C  6A01               	clrf	??_mcpRcv& (0+255),c
+  2915  00136E  2A01               	incf	??_mcpRcv& (0+255),f,c
+  2916  001370  D001               	goto	u398
+  2917  001372                     u390:
+  2918  001372  6A01               	clrf	??_mcpRcv& (0+255),c
+  2919  001374                     u398:
+  2920  001374  5021               	movf	_mcp_ch0,w,c
+  2921  001376  1001               	iorwf	??_mcpRcv,w,c
+  2922  001378  6E21               	movwf	_mcp_ch0,c
+  2923  00137A  5022               	movf	_mcp_ch0+1,w,c
+  2924  00137C  6E22               	movwf	_mcp_ch0+1,c
+  2925                           
+  2926                           ;mcp3909.h: 377: mcp_ch0 = mcp_ch0 << 1;
+  2927  00137E  90D8               	bcf	status,0,c
+  2928  001380  3421               	rlcf	_mcp_ch0,w,c
+  2929  001382  6E21               	movwf	_mcp_ch0,c
+  2930  001384  3422               	rlcf	_mcp_ch0+1,w,c
+  2931  001386  6E22               	movwf	_mcp_ch0+1,c
+  2932                           
+  2933                           ;mcp3909.h: 380: PORTBbits.RB1 = 1;
+  2934  001388  8281               	bsf	3969,1,c	;volatile
+  2935                           
+  2936                           ;mcp3909.h: 381: PORTBbits.RB1 = 0;
+  2937  00138A  9281               	bcf	3969,1,c	;volatile
+  2938                           
+  2939                           ;mcp3909.h: 382: mcp_ch0 = mcp_ch0 | PORTCbits.RC3;
+  2940  00138C  A682               	btfss	3970,3,c	;volatile
+  2941  00138E  D003               	goto	u400
+  2942  001390  6A01               	clrf	??_mcpRcv& (0+255),c
+  2943  001392  2A01               	incf	??_mcpRcv& (0+255),f,c
+  2944  001394  D001               	goto	u408
+  2945  001396                     u400:
+  2946  001396  6A01               	clrf	??_mcpRcv& (0+255),c
+  2947  001398                     u408:
+  2948  001398  5021               	movf	_mcp_ch0,w,c
+  2949  00139A  1001               	iorwf	??_mcpRcv,w,c
+  2950  00139C  6E21               	movwf	_mcp_ch0,c
+  2951  00139E  5022               	movf	_mcp_ch0+1,w,c
+  2952  0013A0  6E22               	movwf	_mcp_ch0+1,c
+  2953                           
+  2954                           ;mcp3909.h: 383: mcp_ch0 = mcp_ch0 << 1;
+  2955  0013A2  90D8               	bcf	status,0,c
+  2956  0013A4  3421               	rlcf	_mcp_ch0,w,c
+  2957  0013A6  6E21               	movwf	_mcp_ch0,c
+  2958  0013A8  3422               	rlcf	_mcp_ch0+1,w,c
+  2959  0013AA  6E22               	movwf	_mcp_ch0+1,c
+  2960                           
+  2961                           ;mcp3909.h: 386: PORTBbits.RB1 = 1;
+  2962  0013AC  8281               	bsf	3969,1,c	;volatile
+  2963                           
+  2964                           ;mcp3909.h: 387: PORTBbits.RB1 = 0;
+  2965  0013AE  9281               	bcf	3969,1,c	;volatile
+  2966                           
+  2967                           ;mcp3909.h: 388: mcp_ch0 = mcp_ch0 | PORTCbits.RC3;
+  2968  0013B0  A682               	btfss	3970,3,c	;volatile
+  2969  0013B2  D003               	goto	u410
+  2970  0013B4  6A01               	clrf	??_mcpRcv& (0+255),c
+  2971  0013B6  2A01               	incf	??_mcpRcv& (0+255),f,c
+  2972  0013B8  D001               	goto	u418
+  2973  0013BA                     u410:
+  2974  0013BA  6A01               	clrf	??_mcpRcv& (0+255),c
+  2975  0013BC                     u418:
+  2976  0013BC  5021               	movf	_mcp_ch0,w,c
+  2977  0013BE  1001               	iorwf	??_mcpRcv,w,c
+  2978  0013C0  6E21               	movwf	_mcp_ch0,c
+  2979  0013C2  5022               	movf	_mcp_ch0+1,w,c
+  2980  0013C4  6E22               	movwf	_mcp_ch0+1,c
+  2981                           
+  2982                           ;mcp3909.h: 389: mcp_ch0 = mcp_ch0 << 1;
+  2983  0013C6  90D8               	bcf	status,0,c
+  2984  0013C8  3421               	rlcf	_mcp_ch0,w,c
+  2985  0013CA  6E21               	movwf	_mcp_ch0,c
+  2986  0013CC  3422               	rlcf	_mcp_ch0+1,w,c
+  2987  0013CE  6E22               	movwf	_mcp_ch0+1,c
+  2988                           
+  2989                           ;mcp3909.h: 392: PORTBbits.RB1 = 1;
+  2990  0013D0  8281               	bsf	3969,1,c	;volatile
+  2991                           
+  2992                           ;mcp3909.h: 393: PORTBbits.RB1 = 0;
+  2993  0013D2  9281               	bcf	3969,1,c	;volatile
+  2994                           
+  2995                           ;mcp3909.h: 394: mcp_ch0 = mcp_ch0 | PORTCbits.RC3;
+  2996  0013D4  A682               	btfss	3970,3,c	;volatile
+  2997  0013D6  D003               	goto	u420
+  2998  0013D8  6A01               	clrf	??_mcpRcv& (0+255),c
+  2999  0013DA  2A01               	incf	??_mcpRcv& (0+255),f,c
+  3000  0013DC  D001               	goto	u428
+  3001  0013DE                     u420:
+  3002  0013DE  6A01               	clrf	??_mcpRcv& (0+255),c
+  3003  0013E0                     u428:
+  3004  0013E0  5021               	movf	_mcp_ch0,w,c
+  3005  0013E2  1001               	iorwf	??_mcpRcv,w,c
+  3006  0013E4  6E21               	movwf	_mcp_ch0,c
+  3007  0013E6  5022               	movf	_mcp_ch0+1,w,c
+  3008  0013E8  6E22               	movwf	_mcp_ch0+1,c
+  3009                           
+  3010                           ;mcp3909.h: 395: mcp_ch0 = mcp_ch0 << 1;
+  3011  0013EA  90D8               	bcf	status,0,c
+  3012  0013EC  3421               	rlcf	_mcp_ch0,w,c
+  3013  0013EE  6E21               	movwf	_mcp_ch0,c
+  3014  0013F0  3422               	rlcf	_mcp_ch0+1,w,c
+  3015  0013F2  6E22               	movwf	_mcp_ch0+1,c
+  3016                           
+  3017                           ;mcp3909.h: 398: PORTBbits.RB1 = 1;
+  3018  0013F4  8281               	bsf	3969,1,c	;volatile
+  3019                           
+  3020                           ;mcp3909.h: 399: PORTBbits.RB1 = 0;
+  3021  0013F6  9281               	bcf	3969,1,c	;volatile
+  3022                           
+  3023                           ;mcp3909.h: 400: mcp_ch0 = mcp_ch0 | PORTCbits.RC3;
+  3024  0013F8  A682               	btfss	3970,3,c	;volatile
+  3025  0013FA  D003               	goto	u430
+  3026  0013FC  6A01               	clrf	??_mcpRcv& (0+255),c
+  3027  0013FE  2A01               	incf	??_mcpRcv& (0+255),f,c
+  3028  001400  D001               	goto	u438
+  3029  001402                     u430:
+  3030  001402  6A01               	clrf	??_mcpRcv& (0+255),c
+  3031  001404                     u438:
+  3032  001404  5021               	movf	_mcp_ch0,w,c
+  3033  001406  1001               	iorwf	??_mcpRcv,w,c
+  3034  001408  6E21               	movwf	_mcp_ch0,c
+  3035  00140A  5022               	movf	_mcp_ch0+1,w,c
+  3036  00140C  6E22               	movwf	_mcp_ch0+1,c
+  3037                           
+  3038                           ;mcp3909.h: 401: mcp_ch0 = mcp_ch0 << 1;
+  3039  00140E  90D8               	bcf	status,0,c
+  3040  001410  3421               	rlcf	_mcp_ch0,w,c
+  3041  001412  6E21               	movwf	_mcp_ch0,c
+  3042  001414  3422               	rlcf	_mcp_ch0+1,w,c
+  3043  001416  6E22               	movwf	_mcp_ch0+1,c
+  3044                           
+  3045                           ;mcp3909.h: 404: PORTBbits.RB1 = 1;
+  3046  001418  8281               	bsf	3969,1,c	;volatile
+  3047                           
+  3048                           ;mcp3909.h: 405: PORTBbits.RB1 = 0;
+  3049  00141A  9281               	bcf	3969,1,c	;volatile
+  3050                           
+  3051                           ;mcp3909.h: 406: mcp_ch0 = mcp_ch0 | PORTCbits.RC3;
+  3052  00141C  A682               	btfss	3970,3,c	;volatile
+  3053  00141E  D003               	goto	u440
+  3054  001420  6A01               	clrf	??_mcpRcv& (0+255),c
+  3055  001422  2A01               	incf	??_mcpRcv& (0+255),f,c
+  3056  001424  D001               	goto	u448
+  3057  001426                     u440:
+  3058  001426  6A01               	clrf	??_mcpRcv& (0+255),c
+  3059  001428                     u448:
+  3060  001428  5021               	movf	_mcp_ch0,w,c
+  3061  00142A  1001               	iorwf	??_mcpRcv,w,c
+  3062  00142C  6E21               	movwf	_mcp_ch0,c
+  3063  00142E  5022               	movf	_mcp_ch0+1,w,c
+  3064  001430  6E22               	movwf	_mcp_ch0+1,c
+  3065                           
+  3066                           ;mcp3909.h: 407: mcp_ch0 = mcp_ch0 << 1;
+  3067  001432  90D8               	bcf	status,0,c
+  3068  001434  3421               	rlcf	_mcp_ch0,w,c
+  3069  001436  6E21               	movwf	_mcp_ch0,c
+  3070  001438  3422               	rlcf	_mcp_ch0+1,w,c
+  3071  00143A  6E22               	movwf	_mcp_ch0+1,c
+  3072                           
+  3073                           ;mcp3909.h: 410: PORTBbits.RB1 = 1;
+  3074  00143C  8281               	bsf	3969,1,c	;volatile
+  3075                           
+  3076                           ;mcp3909.h: 411: PORTBbits.RB1 = 0;
+  3077  00143E  9281               	bcf	3969,1,c	;volatile
+  3078                           
+  3079                           ;mcp3909.h: 412: mcp_ch0 = mcp_ch0 | PORTCbits.RC3;
+  3080  001440  A682               	btfss	3970,3,c	;volatile
+  3081  001442  D003               	goto	u450
+  3082  001444  6A01               	clrf	??_mcpRcv& (0+255),c
+  3083  001446  2A01               	incf	??_mcpRcv& (0+255),f,c
+  3084  001448  D001               	goto	u458
+  3085  00144A                     u450:
+  3086  00144A  6A01               	clrf	??_mcpRcv& (0+255),c
+  3087  00144C                     u458:
+  3088  00144C  5021               	movf	_mcp_ch0,w,c
+  3089  00144E  1001               	iorwf	??_mcpRcv,w,c
+  3090  001450  6E21               	movwf	_mcp_ch0,c
+  3091  001452  5022               	movf	_mcp_ch0+1,w,c
+  3092  001454  6E22               	movwf	_mcp_ch0+1,c
+  3093                           
+  3094                           ;mcp3909.h: 413: mcp_ch0 = mcp_ch0 << 1;
+  3095  001456  90D8               	bcf	status,0,c
+  3096  001458  3421               	rlcf	_mcp_ch0,w,c
+  3097  00145A  6E21               	movwf	_mcp_ch0,c
+  3098  00145C  3422               	rlcf	_mcp_ch0+1,w,c
+  3099  00145E  6E22               	movwf	_mcp_ch0+1,c
+  3100                           
+  3101                           ;mcp3909.h: 416: PORTBbits.RB1 = 1;
+  3102  001460  8281               	bsf	3969,1,c	;volatile
+  3103                           
+  3104                           ;mcp3909.h: 417: PORTBbits.RB1 = 0;
+  3105  001462  9281               	bcf	3969,1,c	;volatile
+  3106                           
+  3107                           ;mcp3909.h: 418: mcp_ch0 = mcp_ch0 | PORTCbits.RC3;
+  3108  001464  A682               	btfss	3970,3,c	;volatile
+  3109  001466  D003               	goto	u460
+  3110  001468  6A01               	clrf	??_mcpRcv& (0+255),c
+  3111  00146A  2A01               	incf	??_mcpRcv& (0+255),f,c
+  3112  00146C  D001               	goto	u468
+  3113  00146E                     u460:
+  3114  00146E  6A01               	clrf	??_mcpRcv& (0+255),c
+  3115  001470                     u468:
+  3116  001470  5021               	movf	_mcp_ch0,w,c
+  3117  001472  1001               	iorwf	??_mcpRcv,w,c
+  3118  001474  6E21               	movwf	_mcp_ch0,c
+  3119  001476  5022               	movf	_mcp_ch0+1,w,c
+  3120  001478  6E22               	movwf	_mcp_ch0+1,c
+  3121                           
+  3122                           ;mcp3909.h: 419: mcp_ch0 = mcp_ch0 << 1;
+  3123  00147A  90D8               	bcf	status,0,c
+  3124  00147C  3421               	rlcf	_mcp_ch0,w,c
+  3125  00147E  6E21               	movwf	_mcp_ch0,c
+  3126  001480  3422               	rlcf	_mcp_ch0+1,w,c
+  3127  001482  6E22               	movwf	_mcp_ch0+1,c
+  3128                           
+  3129                           ;mcp3909.h: 422: PORTBbits.RB1 = 1;
+  3130  001484  8281               	bsf	3969,1,c	;volatile
+  3131                           
+  3132                           ;mcp3909.h: 423: PORTBbits.RB1 = 0;
+  3133  001486  9281               	bcf	3969,1,c	;volatile
+  3134                           
+  3135                           ;mcp3909.h: 424: mcp_ch0 = mcp_ch0 | PORTCbits.RC3;
+  3136  001488  A682               	btfss	3970,3,c	;volatile
+  3137  00148A  D003               	goto	u470
+  3138  00148C  6A01               	clrf	??_mcpRcv& (0+255),c
+  3139  00148E  2A01               	incf	??_mcpRcv& (0+255),f,c
+  3140  001490  D001               	goto	u478
+  3141  001492                     u470:
+  3142  001492  6A01               	clrf	??_mcpRcv& (0+255),c
+  3143  001494                     u478:
+  3144  001494  5021               	movf	_mcp_ch0,w,c
+  3145  001496  1001               	iorwf	??_mcpRcv,w,c
+  3146  001498  6E21               	movwf	_mcp_ch0,c
+  3147  00149A  5022               	movf	_mcp_ch0+1,w,c
+  3148  00149C  6E22               	movwf	_mcp_ch0+1,c
+  3149  00149E  0012               	return		;funcret
+  3150  0014A0                     __end_of_mcpRcv:
+  3151                           	opt stack 0
+  3152                           tblptru	equ	0xFF8
+  3153                           tblptrh	equ	0xFF7
+  3154                           tblptrl	equ	0xFF6
+  3155                           tablat	equ	0xFF5
+  3156                           prodh	equ	0xFF4
+  3157                           prodl	equ	0xFF3
+  3158                           intcon2	equ	0xFF1
+  3159                           postinc0	equ	0xFEE
+  3160                           wreg	equ	0xFE8
+  3161                           postdec1	equ	0xFE5
+  3162                           fsr1h	equ	0xFE2
+  3163                           fsr1l	equ	0xFE1
+  3164                           postinc2	equ	0xFDE
+  3165                           postdec2	equ	0xFDD
+  3166                           fsr2h	equ	0xFDA
+  3167                           fsr2l	equ	0xFD9
+  3168                           status	equ	0xFD8
+  3169                           tblptru	equ	0xFF8
+  3170                           tblptrh	equ	0xFF7
+  3171                           tblptrl	equ	0xFF6
+  3172                           tablat	equ	0xFF5
+  3173                           prodh	equ	0xFF4
+  3174                           prodl	equ	0xFF3
+  3175                           intcon2	equ	0xFF1
+  3176                           postinc0	equ	0xFEE
+  3177                           wreg	equ	0xFE8
+  3178                           postdec1	equ	0xFE5
+  3179                           fsr1h	equ	0xFE2
+  3180                           fsr1l	equ	0xFE1
+  3181                           postinc2	equ	0xFDE
+  3182                           postdec2	equ	0xFDD
+  3183                           fsr2h	equ	0xFDA
+  3184                           fsr2l	equ	0xFD9
+  3185                           status	equ	0xFD8
+  3186                           
+  3187                           	psect	rparam
+  3188  0000                     tblptru	equ	0xFF8
+  3189                           tblptrh	equ	0xFF7
+  3190                           tblptrl	equ	0xFF6
+  3191                           tablat	equ	0xFF5
+  3192                           prodh	equ	0xFF4
+  3193                           prodl	equ	0xFF3
+  3194                           intcon2	equ	0xFF1
+  3195                           postinc0	equ	0xFEE
+  3196                           wreg	equ	0xFE8
+  3197                           postdec1	equ	0xFE5
+  3198                           fsr1h	equ	0xFE2
+  3199                           fsr1l	equ	0xFE1
+  3200                           postinc2	equ	0xFDE
+  3201                           postdec2	equ	0xFDD
+  3202                           fsr2h	equ	0xFDA
+  3203                           fsr2l	equ	0xFD9
+  3204                           status	equ	0xFD8
+
+
+Data Sizes:
+    Strings     38
+    Constant    10
+    Data        0
+    BSS         1007
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM          127     30      38
+    BANK0           128      0       0
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+    BANK6           256      0       0
+    BANK7           256      0       0
+    BANK8           256      0       0
+    BANK9           256      0       0
+    BANK10          256      0       0
+    BANK11          256      0       0
+    BANK12          256      0       0
+    BANK13          256      0       0
+    BANK14          256      0       0
+    BANK15          128      0       0
+
+Pointer List with Targets:
+
+    printf@f	PTR const unsigned char  size(2) Largest target is 16
+		 -> STR_4(CODE[10]), STR_3(CODE[3]), STR_2(CODE[16]), STR_1(CODE[12]), 
+
+    printf@ap	PTR void [1] size(2) Largest target is 2
+		 -> ?_printf(COMRAM[2]), 
+
+    mcpRead@array_ch1	PTR int  size(2) Largest target is 500
+		 -> valor_ch1(BIGRAM[500]), 
+
+    mcpRead@array_ch0	PTR int  size(2) Largest target is 500
+		 -> valor_ch0(BIGRAM[500]), 
+
+
+Critical Paths under _main in COMRAM
+
+    _main->_setup
+    _setup->_inicializa_RS232
+    _setup->_printf
+    _printf->___lwmod
+    ___lwmod->___lwdiv
+    _inicializa_RS232->___aldiv
+    _mcpRead->_mcpRcv
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Critical Paths under _main in BANK6
+
+    None.
+
+Critical Paths under _main in BANK7
+
+    None.
+
+Critical Paths under _main in BANK8
+
+    None.
+
+Critical Paths under _main in BANK9
+
+    None.
+
+Critical Paths under _main in BANK10
+
+    None.
+
+Critical Paths under _main in BANK11
+
+    None.
+
+Critical Paths under _main in BANK12
+
+    None.
+
+Critical Paths under _main in BANK13
+
+    None.
+
+Critical Paths under _main in BANK14
+
+    None.
+
+Critical Paths under _main in BANK15
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 2     2      0    4357
+                                             28 COMRAM     2     2      0
+                            _mcpRead
+                             _printf
+                              _setup
+ ---------------------------------------------------------------------------------
+ (1) _setup                                                2     2      0    2618
+                                             26 COMRAM     2     2      0
+                   _inicializa_RS232
+                        _mcpGetGanho
+                         _mcpInitSPI
+                         _mcpSetGain
+                             _printf
+ ---------------------------------------------------------------------------------
+ (2) _printf                                              23    17      6    1377
+                                             12 COMRAM    14     8      6
+                            ___lwdiv
+                            ___lwmod
+                        _mcpGetGanho (ARG)
+                              _putch
+ ---------------------------------------------------------------------------------
+ (3) _putch                                                1     1      0      15
+                                              0 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ (3) ___lwmod                                              5     1      4     311
+                                              7 COMRAM     5     1      4
+                            ___lwdiv (ARG)
+ ---------------------------------------------------------------------------------
+ (3) ___lwdiv                                              7     3      4     314
+                                              0 COMRAM     7     3      4
+ ---------------------------------------------------------------------------------
+ (2) _mcpSetGain                                           1     1      0      15
+                                              0 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ (2) _mcpInitSPI                                           1     1      0      30
+                                              0 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ (2) _mcpGetGanho                                          0     0      0       0
+ ---------------------------------------------------------------------------------
+ (2) _inicializa_RS232                                    12     6      6    1196
+                                             14 COMRAM    12     6      6
+                            ___aldiv
+ ---------------------------------------------------------------------------------
+ (3) ___aldiv                                             14     6      8     908
+                                              0 COMRAM    14     6      8
+ ---------------------------------------------------------------------------------
+ (1) _mcpRead                                              8     2      6     362
+                                              1 COMRAM     8     2      6
+                             _mcpRcv
+ ---------------------------------------------------------------------------------
+ (2) _mcpRcv                                               1     1      0       0
+                                              0 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 3
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _mcpRead
+     _mcpRcv
+   _printf
+     ___lwdiv
+     ___lwmod
+       ___lwdiv (ARG)
+     _mcpGetGanho (ARG)
+     _putch (ARG)
+   _setup
+     _inicializa_RS232
+       ___aldiv
+     _mcpGetGanho
+     _mcpInitSPI
+     _mcpSetGain
+     _printf
+       ___lwdiv
+       ___lwmod
+         ___lwdiv (ARG)
+       _mcpGetGanho (ARG)
+       _putch (ARG)
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             F7F      0     3E8      37       25.2%
+EEDATA             400      0       0       0        0.0%
+BITBANK14          100      0       0      32        0.0%
+BANK14             100      0       0      33        0.0%
+BITBANK13          100      0       0      30        0.0%
+BANK13             100      0       0      31        0.0%
+BITBANK12          100      0       0      28        0.0%
+BANK12             100      0       0      29        0.0%
+BITBANK11          100      0       0      26        0.0%
+BANK11             100      0       0      27        0.0%
+BITBANK10          100      0       0      24        0.0%
+BANK10             100      0       0      25        0.0%
+BITBANK9           100      0       0      22        0.0%
+BANK9              100      0       0      23        0.0%
+BITBANK8           100      0       0      20        0.0%
+BANK8              100      0       0      21        0.0%
+BITBANK7           100      0       0      18        0.0%
+BANK7              100      0       0      19        0.0%
+BITBANK6           100      0       0      16        0.0%
+BANK6              100      0       0      17        0.0%
+BITBANK5           100      0       0      14        0.0%
+BANK5              100      0       0      15        0.0%
+BITBANK4           100      0       0      12        0.0%
+BANK4              100      0       0      13        0.0%
+BITBANK3           100      0       0      10        0.0%
+BANK3              100      0       0      11        0.0%
+BITBANK2           100      0       0       8        0.0%
+BANK2              100      0       0       9        0.0%
+BITBANK1           100      0       0       6        0.0%
+BANK1              100      0       0       7        0.0%
+BITBANK15           80      0       0      35        0.0%
+BANK15              80      0       0      36        0.0%
+BITBANK0            80      0       0       4        0.0%
+BANK0               80      0       0       5        0.0%
+BITCOMRAM           7F      0       1       0        0.8%
+COMRAM              7F     1E      26       1       29.9%
+BITSFR               0      0       0     200        0.0%
+SFR                  0      0       0     200        0.0%
+STACK                0      0       0       2        0.0%
+NULL                 0      0       0       0        0.0%
+ABS                  0      0      26      34        0.0%
+DATA                 0      0     40E       3        0.0%
+CODE                 0      0       0       0        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V1.45 build -152302408 
+Symbol Table                                                                                   Tue Apr 02 12:43:39 2019
+
+              ?_mcpGetGanho 0001                          l50 1A82                          l45 1A8C  
+                        l70 19B6                          l46 1A64                          l71 19FC  
+                        l48 1A6E                          l57 1952                          l49 1A78  
+                        l82 165C                          l69 199E                          l94 17A2  
+               __CFG_BORV$3 000000                __CFG_CP0$OFF 000000                __CFG_CP1$OFF 000000  
+              __CFG_CP2$OFF 000000                __CFG_CP3$OFF 000000                         l111 14AA  
+                       l120 14C0                         l112 14BA                         l121 1520  
+                       l113 14C4                         l123 1538                         l118 14F2  
+         ?_inicializa_RS232 000F                         l127 157A                         l128 15C8  
+                       l129 1580                         l191 1734                         l192 1728  
+                       l195 1768                         l196 1776                         l188 16EE  
+                       l540 1A48                         l197 178C                         l189 1706  
+                       l541 1A52                         l550 1AD6                         l551 1AE0  
+                       l536 1A28                         l537 1A20                         l546 1ABE  
+                       l547 1AB6                         l754 1B18                __CFG_CPB$OFF 000000  
+                       u200 10D0                         u210 10F4                         u300 1238  
+                       u220 1118                         u310 125C                         u230 113C  
+                       u400 1396                         u320 1276                         u240 1160  
+                       u208 10D2                         u160 1040                         u410 13BA  
+                       u330 129A                         u250 1184                         u218 10F6  
+                       u170 1064                         u420 13DE                         u340 12BE  
+                       u308 123A                         u260 11A8                         u228 111A  
+                       u180 1088                         u430 1402                         u350 12E2  
+                       u318 125E                         u270 11CC                         u238 113E  
+                       u190 10AC                         u440 1426                         u408 1398  
+                       u360 1306                         u328 1278                         u280 11F0  
+                       u248 1162                         u168 1042                         u450 144A  
+                       u418 13BC                         u370 132A                         u338 129C  
+                       u290 1214                         u258 1186                         u178 1066  
+              __CFG_CPD$OFF 000000                         u460 146E                         u428 13E0  
+                       u380 134E                         u348 12C0                         u268 11AA  
+                       u188 108A                         u470 1492                         u438 1404  
+                       u390 1372                         u358 12E4                         u278 11CE  
+                       u198 10AE                         u448 1428                         u368 1308  
+                       u288 11F2                         u458 144C                         u378 132C  
+                       u298 1216                         u730 1A2C                         u468 1470  
+                       u388 1350                         u478 1494                         u398 1374  
+                       u760 1AC2                         u840 1568                         u690 1738  
+                       u930 18CC                         u860 15D0                         u950 1826  
+                       u967 1830                         u977 1848                         u987 189E  
+                       u997 18B8          ??_inicializa_RS232 0015                         wreg 000FE8  
+              __CFG_LVP$OFF 000000                __CFG_WDT$OFF 000000                        l1346 1886  
+                      l1284 153C                        l1356 18CC                        l1372 17D4  
+                      l1382 1826                        STR_1 101B                        STR_2 100B  
+                      STR_3 1024                        STR_4 1027                        _RCIE 007CED  
+                      _TXIE 007CEC                        _TXIF 007CF4                __CFG_PWRT$ON 000000  
+                      _main 179E                        fsr1h 000FE2                        fsr2h 000FDA  
+                      fsr1l 000FE1                        fsr2l 000FD9                        prodh 000FF4  
+                      prodl 000FF3                        start 0000               __CFG_IESO$OFF 000000  
+             __CFG_MCLRE$ON 000000                ___param_bank 000000             __end_of___aldiv 179E  
+                     ?_main 0001             __end_of___lwdiv 1A5C             __end_of___lwmod 1AEA  
+                     _RCSTA 000FAB                       _SPBRG 000FAF                       _TXREG 000FAD  
+                     _TXSTA 000FAC               __CFG_WRT0$OFF 000000               __CFG_WRT1$OFF 000000  
+             __CFG_WRT2$OFF 000000               __CFG_WRT3$OFF 000000              __CFG_EBTR0$OFF 000000  
+            __CFG_FCMEN$OFF 000000              __CFG_EBTR1$OFF 000000              __CFG_EBTR2$OFF 000000  
+            __CFG_EBTR3$OFF 000000               __CFG_WRTB$OFF 000000               __CFG_WRTC$OFF 000000  
+             __CFG_WRTD$OFF 000000             __end_of_mcpRead 1A0A              __CFG_EBTRB$OFF 000000  
+           __end_of_dpowers 100B                       _setup 1858                       _putch 1B16  
+            __pbitbssCOMRAM 0130              __CFG_BOREN$OFF 000000                       tablat 000FF5  
+                     status 000FD8        inicializa_RS232@modo 0013             __initialization 1AEA  
+              __end_of_main 1858              __CFG_OSC$HSPLL 000000                      ??_main 001D  
+             __activetblptr 000002  inicializa_RS232@velocidade 000F                      ?_setup 0001  
+                    ?_putch 0001              __CFG_WDTPS$512 000000                      _WDTCON 000FD1  
+           mcpRead@f_sample 0130              __CFG_XINST$OFF 000000                   ??___aldiv 0009  
+            __CFG_STVREN$ON 000000                   ??___lwdiv 0005                   ??___lwmod 000C  
+                    _auxInt 0023                      _mcpRcv 1032        __size_of_mcpGetGanho 0004  
+                    clear_0 1AF2                      clear_1 1B06                      _printf 14A0  
+                 ??_mcpRead 0008                __mediumconst 0000                      tblptrh 000FF7  
+                    tblptrl 000FF6                      tblptru 000FF8                  __accesstop 0080  
+   __end_of__initialization 1B0C             __CFG_PBADEN$OFF 000000               ___rparam_used 000001  
+     inicializa_RS232@valor 0015              __pcstackCOMRAM 0001        _inicializa_RS232$943 0017  
+             __end_of_setup 18FE               __end_of_putch 1B22                     ??_setup 001B  
+                   ??_putch 0001   __size_of_inicializa_RS232 00E8                     ?_mcpRcv 0001  
+                   ?_printf 000D                  _mcpInitSPI 18FE                  _mcpSetGain 1A5C  
+          mcpRead@array_ch0 0002            mcpRead@array_ch1 0004                     __Hparam 0000  
+                   __Lparam 0000                     ___aldiv 16D2                     ___lwdiv 1A0A  
+                   ___lwmod 1AA8                __psmallconst 1000             __size_of_mcpRcv 046E  
+                   __pcinit 1AEA                     __ramtop 1000                     __ptext0 179E  
+                   __ptext1 1858                     __ptext2 14A0                     __ptext3 1B16  
+                   __ptext4 1AA8                     __ptext5 1A0A                     __ptext6 1A5C  
+                   __ptext7 18FE                     __ptext8 1B22                     __ptext9 15EA  
+           __size_of_printf 014A                     _mcpRead 1994                     _mcp_ch0 0021  
+                   _mcp_ch1 001F                     _dpowers 1001            ___aldiv@dividend 0001  
+      end_of_initialization 1B0C               __Lmediumconst 0000             mcpSetGain@ganho 0001  
+                   printf@c 001A                     printf@f 000D            ___aldiv@quotient 000B  
+                   postdec1 000FE5                     postdec2 000FDD                     postinc0 000FEE  
+                   postinc2 000FDE                   _PORTBbits 000F81                   _PORTCbits 000F82  
+                 _TRISBbits 000F93                   _TRISCbits 000F94                 ?_mcpInitSPI 0001  
+               ?_mcpSetGain 0001            _inicializa_RS232 15EA               ??_mcpGetGanho 0001  
+        mcpRead@contAmostra 0008              __end_of_mcpRcv 14A0              __end_of_printf 15EA  
+       start_initialization 1AEA              mcpInitSPI@modo 0001                    ??_mcpRcv 0001  
+          __CFG_LPT1OSC$OFF 000000         __size_of_mcpInitSPI 0096                    ??_printf 0013  
+       __size_of_mcpSetGain 004C         __end_of_mcpGetGanho 1B26                 __pbssBIGRAM 0B98  
+               __pbssCOMRAM 001F            ___lwdiv@dividend 0001           __CFG_CCP2MX$PORTC 000000  
+                  ?___aldiv 0001                    ?___lwdiv 0001                    ?___lwmod 0008  
+                  ?_mcpRead 0002                 __smallconst 1000                   _mcp_ganho 0025  
+          ___lwdiv@quotient 0005              __size_of_setup 00A6              __size_of_putch 000C  
+           ___aldiv@divisor 0005             ___aldiv@counter 0009                   _valor_ch0 0D8C  
+                 _valor_ch1 0B98                 _mcpGetGanho 1B22          mcpRead@qntAmostras 0006  
+  __end_of_inicializa_RS232 16D2                  printf@flag 0017                  printf@prec 0014  
+               _INTCON2bits 000FF1                ??_mcpInitSPI 0001                ??_mcpSetGain 0001  
+                  __Hrparam 0000                    __Lrparam 0000            __size_of___aldiv 00CC  
+          __size_of___lwdiv 0052            __size_of___lwmod 0042          __end_of_mcpInitSPI 1994  
+        __end_of_mcpSetGain 1AA8            __size_of_mcpRead 0076             ___lwdiv@divisor 0003  
+           ___lwdiv@counter 0007                    __ptext10 16D2                    __ptext11 1994  
+                  __ptext12 1032               __size_of_main 00BA                   printf@val 0018  
+                 putch@data 0001            ___lwmod@dividend 0008                    printf@ap 0015  
+           ___lwmod@divisor 000A             ___lwmod@counter 000C                ___aldiv@sign 000A  
