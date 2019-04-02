@@ -9,8 +9,11 @@ A pasta mcpLib.X contém o projeto desenvolvido com a IDE MPLAB X, utilizando o 
 O código inicializa a comunicação com o CI e, a cada 1 segundo, realiza a leitura de 250 amostras (valores de ch0 e ch1 gerados pelo CI). Após a leitura, os valores são enviados através da USART do microcontrolador, para que possam ser visualizados em um PC. Um led pisca a cada leitura realizada.
 
 No arquivo main.c está o loop infinito e uma função com rotinas executadas antes de iniciar o loop infinito;
+
 No arquivo init.h estão as configurações do microcontrolador, #defines e variáveis globais;
+
 No arquivo serial.h estão rotinas referentes à interface serial (USART) do microcontrolador.
+
 No arquivo mcp3909.h estão as funções e rotinas para comunicação com MCP3909, que estão detalhadas a seguir.
 
 # Sobre a biblioteca MCP3909.h
