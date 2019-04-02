@@ -22,25 +22,25 @@ Na parte superior do arquivo estão os #defines que relacionam os pinos do micro
 
 As funções disponíveis:
 
-1)	mcpSetGain():
+1)	void <b>mcpSetGain</b>(unsigned char ganho)
 
-Determina o ganho do canal de corrente (CH0), conforme o valor indicado como parâmetro de entrada da função (variável do tipo unsigned char).
+Determina o ganho do canal de corrente (CH0), conforme o valor indicado como parâmetro de entrada da função.
 
-Ganho = 0: CH0 Gain = 01 | Tensão máxima = 470mV;
+ganho = 0: CH0 Gain = 01 | Tensão máxima = 470mV;
 
-Ganho = 1: CH0 Gain = 02 | Tensão máxima = 235mV;
+ganho = 1: CH0 Gain = 02 | Tensão máxima = 235mV;
 
-Ganho = 2: CH0 Gain = 08 | Tensão máxima = 60mV;
+ganho = 2: CH0 Gain = 08 | Tensão máxima = 60mV;
 
-Ganho = 3: CH0 Gain = 16 | Tensão máxima = 30mV.
+ganho = 3: CH0 Gain = 16 | Tensão máxima = 30mV.
 
 (Mais detalhes na página 19 do datasheet).
 
-2)	mcpGetGain()
+2)	unsigned char <b>mcpGetGanho</b>(void)
 
-Retorna uma variável do tipo unsigned char, contendo o valor do ganho definido através da função mcpSetGain().
+Retorna o valor do ganho definido através da função mcpSetGain().
 
-3)	mcpInitSPI()
+3)	void <b>mcpInitSPI</b>(unsigned char modo)
 
 Inicializa a comunicação serial no modo definido como parâmetro de entrada (variável do tipo unsigned char).
 
@@ -50,7 +50,7 @@ Modo = POST_HPF1: Dual Channel Output Post HPF1.
 
 (Mais detalhes na página 25 do datasheet).
 
-4)	mcpRead()
+4)	void <b>mcpRead</b>(int array_ch0[], int array_ch1[], unsigned int qntAmostras)
 
 Realiza uma quantidade específica de leituras e armazena os valores em dois vetores. A função recebe como parâmetro de entrada dois ponteiros (indicando os vetores para armazenamento) e a quantidade de leituras que devem ser realizadas.
 
